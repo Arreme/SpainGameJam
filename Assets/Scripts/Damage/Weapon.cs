@@ -7,16 +7,17 @@ public class Weapon : MonoBehaviour
     public float damage;
     public float forceX;
     public float forceY;
-
+    public Rigidbody2D enemy;
+    public Rigidbody2D torch;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-            Rigidbody2D body = collision.gameObject.GetComponent<Rigidbody2D>();
+            enemy = collision.gameObject.GetComponent<Rigidbody2D>();
             if (damageable != null) damageable.Damage(damage);
-            if (body != null) body.AddForce(new Vector2((collision.transform.position.x - transform.position.x) * forceX, forceY));
+            if (enemy != null) enemy.AddForce(new Vector2((collision.transform.position.x - transform.position.x) * forceX, forceY));
         }
 
     }
