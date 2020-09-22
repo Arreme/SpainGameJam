@@ -53,6 +53,11 @@ public class PlayerController : MonoBehaviour
     [Range(0, 1)]
     float fCutJumpHeight = 0.5f;
 
+    [SerializeField]
+    private Vector2 positionBox;
+    [SerializeField]
+    private Vector2 scaleBox;
+
     void Awake()
     {
         input = new InputSystem();
@@ -79,12 +84,17 @@ public class PlayerController : MonoBehaviour
     private void LeftRightInput(InputAction.CallbackContext ctx)
     {
         leftrightcontext = ctx.ReadValue<float>();
+        if ((facingRight && leftrightcontext == 0) ||(!facingRight && leftrightcontext ==1))
+        {
+            Flip();
+        }
+        
     }
 
     void FixedUpdate()
     {
-        Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + new Vector2(0, -0.01f);
-        Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + new Vector2(-0.02f, 0);
+        Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
+        Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + scaleBox;
         _isGrounded = Physics2D.OverlapBox(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale, 0, lmWalls);
         modifyPhysics();
         fGroundedRemember -= Time.deltaTime;
@@ -125,7 +135,7 @@ public class PlayerController : MonoBehaviour
             fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenStopping, Time.deltaTime * 10f);
         else if (Mathf.Sign(leftrightcontext) != Mathf.Sign(fHorizontalVelocity))
         {
-            Flip();
+            
             fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenTurning, Time.deltaTime * 10f);
         }
             
@@ -165,4 +175,11 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
         transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
+    //    Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + scaleBox;
+    //    Gizmos.DrawCube(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale);
+    //}
 }
