@@ -5,7 +5,7 @@ using UnityEngine;
 public class Damageable : MonoBehaviour, IDamageable
 {
     [SerializeField] protected float maxHealth;
-    protected float currentHealth;
+    [SerializeField] protected float currentHealth;
 
     protected void Awake()
     {

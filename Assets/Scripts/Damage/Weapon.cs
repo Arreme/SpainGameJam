@@ -15,12 +15,9 @@ public class Weapon : MonoBehaviour
         {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
             Rigidbody2D body = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (damageable != null)
-            {
-                damageable.Damage(damage);
-                print("Damage");
-            }
+            if (damageable != null) damageable.Damage(damage);
             if (body != null) body.AddForce(new Vector2((collision.transform.position.x - transform.position.x) * forceX, forceY));
         }
+
     }
 }

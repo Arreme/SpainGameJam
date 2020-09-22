@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class EnemyHealth : Damageable
 {
     public Slider slider;
     public float sliderSmooth = 0.15f;
-    public GameObject deathEffect;
 
     new private void Awake()
     {
@@ -33,7 +33,6 @@ public class EnemyHealth : Damageable
 
     public override void Kill()
     {
-        if (deathEffect != null) Instantiate(deathEffect, transform.position, transform.rotation);
         base.Kill();
     }
 }
