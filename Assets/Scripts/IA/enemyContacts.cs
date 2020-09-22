@@ -16,6 +16,8 @@ public class enemyContacts : MonoBehaviour
     [SerializeField]
     float distance;
     [SerializeField]
+    float behindDistance;
+    [SerializeField]
     LayerMask whatIsGround;
     [SerializeField]
     LayerMask whatIsPlayer;
@@ -36,8 +38,18 @@ public class enemyContacts : MonoBehaviour
         RaycastHit2D nextPlayer = Physics2D.Raycast(playerContact.position, playerContact.right, distance, whatIsPlayer);
         playerContactHit = nextPlayer;
 
-        RaycastHit2D closePlayer = Physics2D.Raycast(playerBehind.position, playerBehind.right * -1, distance * 5, whatIsPlayer);
-        playerBehindHit = closePlayer;
+        RaycastHit2D whatBehind = Physics2D.Raycast(playerBehind.position, playerBehind.right * -1, behindDistance);
+        if (whatBehind)
+        {
+            if (whatBehind.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                playerBehindHit = true;
+            }
+        }
+        else
+        {
+            playerBehindHit = false;
+        }
     }
 
     private void OnDrawGizmos()
@@ -45,6 +57,6 @@ public class enemyContacts : MonoBehaviour
         Gizmos.DrawRay(nextStep.position, nextStep.right * distance);
         Gizmos.DrawRay(wall.position, wall.right * distance);
         Gizmos.DrawRay(playerContact.position, playerContact.right * distance);
-        Gizmos.DrawRay(playerBehind.position, playerBehind.right * -1 * distance * 5);
+        Gizmos.DrawRay(playerBehind.position, playerBehind.right * -1 * behindDistance);
     }
 }
