@@ -5,21 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Horizontal Movement")]
-    public float moveSpeed = 10f;
-    public Vector2 direction;
+    private InputSystem input;
+    [SerializeField]
+    LayerMask lmWalls;
+    [SerializeField]
+    float fJumpVelocity = 5;
+    private bool _isJumping;
+    private float leftrightcontext;
+    private bool _isGrounded;
     private bool facingRight = true;
-
-    [Header("Vertical Movement")]
-    public float jumpSpeed = 15f;
-    public float jumpDelay = 0.25f;
-    private float jumpTimer;
-
-    [Header("Components")]
-    public Rigidbody2D rb;
-    public Animator animator;
-    public LayerMask groundLayer;
-    public GameObject characterHolder;
+    Rigidbody2D rigid;
 
     [Header("Physics")]
     public float maxSpeed = 7f;
@@ -27,88 +22,141 @@ public class PlayerController : MonoBehaviour
     public float gravity = 1f;
     public float fallMultiplier = 5f;
 
-    [Header("Collision")]
-    public bool onGround = false;
-    public float groundLength = 0.6f;
-    public Vector3 colliderOffset;
+    [Header("Remember Times")]
+    [SerializeField]
+    float fJumpPressedRemember = 0;
+    [SerializeField]
+    float fJumpPressedRememberTime = 0.2f;
+    [SerializeField]
+    float fGroundedRemember = 0;
+    [SerializeField]
+    float fGroundedRememberTime = 0.25f;
+    private bool _doingLongJump;
+    [SerializeField]
+    private float timeForLongJump;
+    private float timePressed;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Horizontal Movement")]
+    [SerializeField]
+    float fHorizontalAcceleration = 1;
+    [SerializeField]
+    [Range(0, 1)]
+    float fHorizontalDampingBasic = 0.5f;
+    [SerializeField]
+    [Range(0, 1)]
+    float fHorizontalDampingWhenStopping = 0.5f;
+    [SerializeField]
+    [Range(0, 1)]
+    float fHorizontalDampingWhenTurning = 0.5f;
+
+    [SerializeField]
+    [Range(0, 1)]
+    float fCutJumpHeight = 0.5f;
+
+    void Awake()
     {
-        bool wasOnGround = onGround;
-        onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
-
-        if (!wasOnGround && onGround)
-        {
-            StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpTimer = Time.time + jumpDelay;
-        }
-        //animator.SetBool("onGround", onGround);
-        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        input = new InputSystem();
+        input.Player1.Jump.performed += ctx => JumpInput(ctx);
+        input.Player1.LeftRight.performed += ctx => LeftRightInput(ctx);
+        rigid = GetComponent<Rigidbody2D>();
     }
+
+    private void OnEnable()
+    {
+        input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        input.Disable();
+    }
+
+    private void JumpInput(InputAction.CallbackContext ctx)
+    {
+        _isJumping = ctx.ReadValue<float>() == 0 ? false : true;
+    }
+
+    private void LeftRightInput(InputAction.CallbackContext ctx)
+    {
+        leftrightcontext = ctx.ReadValue<float>();
+    }
+
     void FixedUpdate()
     {
-        moveCharacter(direction.x);
-        if (jumpTimer > Time.time && onGround)
+        Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + new Vector2(0, -0.01f);
+        Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + new Vector2(-0.02f, 0);
+        _isGrounded = Physics2D.OverlapBox(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale, 0, lmWalls);
+        modifyPhysics();
+        fGroundedRemember -= Time.deltaTime;
+        if (_isGrounded)
         {
-            JumpNow();
+            fGroundedRemember = fGroundedRememberTime;
+            _doingLongJump = false;
         }
 
-        modifyPhysics();
-    }
-    void moveCharacter(float horizontal)
-    {
-        rb.AddForce(Vector2.right * horizontal * moveSpeed);
+        fJumpPressedRemember -= Time.deltaTime;
+        if (_isJumping)
+        {
+            fJumpPressedRemember = fJumpPressedRememberTime;
+            timePressed -= Time.deltaTime;
+        } else
+        {
+            if (rigid.velocity.y > 0 && timePressed >= 0.7 && !_doingLongJump)
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * fCutJumpHeight);
+            } else
+            {
+                timePressed -= Time.deltaTime;
+            }
+        }
+        if ((fJumpPressedRemember > 0) && (fGroundedRemember > 0))
+        {
+            fJumpPressedRemember = 0;
+            fGroundedRemember = 0;
+            rigid.velocity = new Vector2(rigid.velocity.x, fJumpVelocity);
+            if (timePressed <= 0)
+                _doingLongJump = true;
+        }
 
-        if ((horizontal > 0 && !facingRight) || (horizontal < 0 && facingRight))
+        float fHorizontalVelocity = rigid.velocity.x;
+        fHorizontalVelocity += leftrightcontext;
+
+        if (Mathf.Abs(leftrightcontext) < 0.01f)
+            fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenStopping, Time.deltaTime * 10f);
+        else if (Mathf.Sign(leftrightcontext) != Mathf.Sign(fHorizontalVelocity))
         {
             Flip();
+            fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenTurning, Time.deltaTime * 10f);
         }
-        if (Mathf.Abs(rb.velocity.x) > maxSpeed)
-        {
-            rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
-        }
-        //animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
-        //animator.SetFloat("vertical", rb.velocity.y);
+            
+        else
+            fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingBasic, Time.deltaTime * 10f);
+
+        
+        if (Mathf.Abs(fHorizontalVelocity) <= maxSpeed)
+            rigid.velocity = new Vector2(fHorizontalVelocity, rigid.velocity.y);
+        else
+            rigid.velocity = new Vector2(Mathf.Sign(rigid.velocity.x) * maxSpeed, rigid.velocity.y);
     }
-    void JumpNow()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-        jumpTimer = 0;
-        StartCoroutine(JumpSqueeze(0.5f, 1.2f, 0.1f));
-    }
+
     void modifyPhysics()
     {
-        bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
 
-        if (onGround)
+        if (_isGrounded)
         {
-            if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
-            {
-                rb.drag = linearDrag;
-            }
-            else
-            {
-                rb.drag = 0f;
-            }
-            rb.gravityScale = 0;
+            rigid.gravityScale = 0;
         }
         else
         {
-            rb.gravityScale = gravity;
-            rb.drag = linearDrag * 0.15f;
-            if (rb.velocity.y < 0)
+            rigid.gravityScale = gravity;
+            rigid.drag = linearDrag * 0.15f;
+            if (rigid.velocity.y < 0)
             {
-                rb.gravityScale = gravity * fallMultiplier;
+                rigid.gravityScale = gravity * fallMultiplier;
             }
-            else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            else if (rigid.velocity.y > 0 && !_isJumping)
             {
-                rb.gravityScale = gravity * (fallMultiplier / 2);
+                rigid.gravityScale = gravity * (fallMultiplier / 1.25f);
             }
         }
     }
@@ -116,31 +164,5 @@ public class PlayerController : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
-    }
-    IEnumerator JumpSqueeze(float xSqueeze, float ySqueeze, float seconds)
-    {
-        Vector3 originalSize = Vector3.one;
-        Vector3 newSize = new Vector3(xSqueeze, ySqueeze, originalSize.z);
-        float t = 0f;
-        while (t <= 1.0)
-        {
-            t += Time.deltaTime / seconds;
-            //characterHolder.transform.localScale = Vector3.Lerp(originalSize, newSize, t);
-            yield return null;
-        }
-        t = 0f;
-        while (t <= 1.0)
-        {
-            t += Time.deltaTime / seconds;
-            //characterHolder.transform.localScale = Vector3.Lerp(newSize, originalSize, t);
-            yield return null;
-        }
-
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
-        Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
     }
 }

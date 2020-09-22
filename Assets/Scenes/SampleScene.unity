@@ -216,8 +216,8 @@ GameObject:
   - component: {fileID: 231503373}
   - component: {fileID: 231503372}
   - component: {fileID: 231503374}
-  - component: {fileID: 231503371}
   - component: {fileID: 231503375}
+  - component: {fileID: 231503371}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -225,8 +225,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &231503371
-CircleCollider2D:
+--- !u!61 &231503371
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -239,8 +239,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!212 &231503372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -322,7 +332,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5f8e11d81d05f6f499b32455dbde280d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -339,23 +349,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246930cb56bbdb408fc56e542705df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  direction: {x: 0, y: 0}
-  jumpSpeed: 15
-  jumpDelay: 0.25
-  rb: {fileID: 231503374}
-  animator: {fileID: 0}
-  groundLayer:
+  lmWalls:
     serializedVersion: 2
     m_Bits: 256
-  characterHolder: {fileID: 0}
-  maxSpeed: 7
+  fJumpVelocity: 10
+  maxSpeed: 9
   linearDrag: 4
-  gravity: 1
-  fallMultiplier: 5
-  onGround: 0
-  groundLength: 0.6
-  colliderOffset: {x: 0.35, y: 0, z: 0}
+  gravity: 2
+  fallMultiplier: 2.75
+  fJumpPressedRemember: 0
+  fJumpPressedRememberTime: 0.05
+  fGroundedRemember: 0
+  fGroundedRememberTime: 0.88
+  timeForLongJump: 2
+  fHorizontalAcceleration: 1
+  fHorizontalDampingBasic: 0.355
+  fHorizontalDampingWhenStopping: 0.82
+  fHorizontalDampingWhenTurning: 0.84
+  fCutJumpHeight: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
