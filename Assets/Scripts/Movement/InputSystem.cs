@@ -28,7 +28,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Jump"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""4b4520f7-c696-41bf-b2f4-ce2cade538e0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
