@@ -18,6 +18,7 @@ public class DarknessChrono : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = 0;
+
             Debug.Log("Las sombras son mu malas y te matan");
         }
     }
