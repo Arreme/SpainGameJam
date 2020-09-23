@@ -30,9 +30,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "RecieveDmg",
+                    "name": "UpDown",
                     "type": "PassThrough",
-                    "id": "5db96c37-d070-4953-8244-342e3c5e18d8",
+                    "id": "f4be91a7-c8de-4de5-b9f4-8912df20336b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -95,15 +95,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "5832fc25-9c8f-4b95-9f79-e2aa67a413bd",
-                    "path": "<Keyboard>/x",
+                    "name": "1D Axis",
+                    "id": "dd921001-36db-4d51-8793-b49ca57f26a2",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RecieveDmg",
-                    "isComposite": false,
+                    "action": "UpDown",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "257fe27e-21da-45ee-9176-a41375ebaae0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpDown",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "a1e1778f-7aa6-4107-a66d-e737e66f64e4",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpDown",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

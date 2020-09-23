@@ -9,11 +9,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     LayerMask lmWalls;
     [SerializeField]
+    LayerMask whatIsLadder;
+    [SerializeField]
+    float ladderRayDist = 0.1f;
+    [SerializeField]
+    float ladderSpeed = 3f;
+    [SerializeField]
     float fJumpVelocity = 5;
     private bool _isJumping;
-    private float leftrightcontext;
+    [SerializeField]
     private bool _isGrounded;
     private bool facingRight = true;
+    private float leftrightcontext;
+    private float updowncontext;
+    [SerializeField]
+    private bool _isClimbing;
     Rigidbody2D rigid;
 
     [Header("Physics")]
@@ -21,6 +31,9 @@ public class PlayerController : MonoBehaviour
     public float linearDrag = 4f;
     public float gravity = 1f;
     public float fallMultiplier = 5f;
+
+
+    
 
     [Header("Remember Times")]
     [SerializeField]
@@ -70,6 +83,7 @@ public class PlayerController : MonoBehaviour
         input = new InputSystem();
         input.Player1.Jump.performed += ctx => JumpInput(ctx);
         input.Player1.LeftRight.performed += ctx => LeftRightInput(ctx);
+        input.Player1.UpDown.performed += ctx => UpDownInput(ctx);
         rigid = GetComponent<Rigidbody2D>();
         
     }
@@ -102,14 +116,19 @@ public class PlayerController : MonoBehaviour
             
     }
 
-    void FixedUpdate()
+    private void UpDownInput(InputAction.CallbackContext ctx)
+    {
+        updowncontext = ctx.ReadValue<float>();
+    }
+
+        void FixedUpdate()
     {
         Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
         Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + scaleBox;
         _isGrounded = Physics2D.OverlapBox(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale, 0, lmWalls);
         modifyPhysics();
         fGroundedRemember -= Time.deltaTime;
-        if (_isGrounded)
+        if (_isGrounded || _isClimbing)
         {
             fGroundedRemember = fGroundedRememberTime;
             _doingLongJump = false;
@@ -158,12 +177,31 @@ public class PlayerController : MonoBehaviour
             rigid.velocity = new Vector2(fHorizontalVelocity, rigid.velocity.y);
         else
             rigid.velocity = new Vector2(Mathf.Sign(rigid.velocity.x) * maxSpeed, rigid.velocity.y);
+        
+        RaycastHit2D isLadder = Physics2D.Raycast(transform.position, Vector2.up, ladderRayDist, whatIsLadder);
+        
+        if (isLadder)
+        {
+            _isClimbing = true;
+            if (updowncontext != 0)
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, updowncontext * ladderSpeed);
+            }
+            else
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, 0);
+            }
+        }
+        else
+        {
+            _isClimbing = false;
+        }
     }
 
     void modifyPhysics()
     {
 
-        if (_isGrounded)
+        if (_isGrounded || _isClimbing)
         {
             rigid.gravityScale = 0;
         }

@@ -43,9 +43,9 @@ public class @InputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""RecieveDmg"",
+                    ""name"": ""UpDown"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""5db96c37-d070-4953-8244-342e3c5e18d8"",
+                    ""id"": ""f4be91a7-c8de-4de5-b9f4-8912df20336b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -108,15 +108,37 @@ public class @InputSystem : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""5832fc25-9c8f-4b95-9f79-e2aa67a413bd"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""dd921001-36db-4d51-8793-b49ca57f26a2"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RecieveDmg"",
-                    ""isComposite"": false,
+                    ""action"": ""UpDown"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""257fe27e-21da-45ee-9176-a41375ebaae0"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a1e1778f-7aa6-4107-a66d-e737e66f64e4"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -128,7 +150,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
         m_Player1_LeftRight = m_Player1.FindAction("LeftRight", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
         m_Player1_Attack = m_Player1.FindAction("Attack", throwIfNotFound: true);
-        m_Player1_RecieveDmg = m_Player1.FindAction("RecieveDmg", throwIfNotFound: true);
+        m_Player1_UpDown = m_Player1.FindAction("UpDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -181,7 +203,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_LeftRight;
     private readonly InputAction m_Player1_Jump;
     private readonly InputAction m_Player1_Attack;
-    private readonly InputAction m_Player1_RecieveDmg;
+    private readonly InputAction m_Player1_UpDown;
     public struct Player1Actions
     {
         private @InputSystem m_Wrapper;
@@ -189,7 +211,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
         public InputAction @LeftRight => m_Wrapper.m_Player1_LeftRight;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
         public InputAction @Attack => m_Wrapper.m_Player1_Attack;
-        public InputAction @RecieveDmg => m_Wrapper.m_Player1_RecieveDmg;
+        public InputAction @UpDown => m_Wrapper.m_Player1_UpDown;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -208,9 +230,9 @@ public class @InputSystem : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
-                @RecieveDmg.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRecieveDmg;
-                @RecieveDmg.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRecieveDmg;
-                @RecieveDmg.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRecieveDmg;
+                @UpDown.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnUpDown;
+                @UpDown.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnUpDown;
+                @UpDown.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnUpDown;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -224,9 +246,9 @@ public class @InputSystem : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @RecieveDmg.started += instance.OnRecieveDmg;
-                @RecieveDmg.performed += instance.OnRecieveDmg;
-                @RecieveDmg.canceled += instance.OnRecieveDmg;
+                @UpDown.started += instance.OnUpDown;
+                @UpDown.performed += instance.OnUpDown;
+                @UpDown.canceled += instance.OnUpDown;
             }
         }
     }
@@ -236,6 +258,6 @@ public class @InputSystem : IInputActionCollection, IDisposable
         void OnLeftRight(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnRecieveDmg(InputAction.CallbackContext context);
+        void OnUpDown(InputAction.CallbackContext context);
     }
 }
