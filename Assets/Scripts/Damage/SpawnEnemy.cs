@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    EnemyPooler enemyPooler;
+
+    private void Start()
     {
-        
+        enemyPooler = EnemyPooler.instance;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void FixedUpdate()
+    {       
+        enemyPooler.SpawnFromPool("Enemy", transform.position);
     }
 }
