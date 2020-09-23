@@ -41,6 +41,14 @@ public class @InputSystem : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""RecieveDmg"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""5db96c37-d070-4953-8244-342e3c5e18d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -98,6 +106,17 @@ public class @InputSystem : IInputActionCollection, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5832fc25-9c8f-4b95-9f79-e2aa67a413bd"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RecieveDmg"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -109,6 +128,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
         m_Player1_LeftRight = m_Player1.FindAction("LeftRight", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
         m_Player1_Attack = m_Player1.FindAction("Attack", throwIfNotFound: true);
+        m_Player1_RecieveDmg = m_Player1.FindAction("RecieveDmg", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,6 +181,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_LeftRight;
     private readonly InputAction m_Player1_Jump;
     private readonly InputAction m_Player1_Attack;
+    private readonly InputAction m_Player1_RecieveDmg;
     public struct Player1Actions
     {
         private @InputSystem m_Wrapper;
@@ -168,6 +189,7 @@ public class @InputSystem : IInputActionCollection, IDisposable
         public InputAction @LeftRight => m_Wrapper.m_Player1_LeftRight;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
         public InputAction @Attack => m_Wrapper.m_Player1_Attack;
+        public InputAction @RecieveDmg => m_Wrapper.m_Player1_RecieveDmg;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -186,6 +208,9 @@ public class @InputSystem : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
+                @RecieveDmg.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRecieveDmg;
+                @RecieveDmg.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRecieveDmg;
+                @RecieveDmg.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRecieveDmg;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -199,6 +224,9 @@ public class @InputSystem : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @RecieveDmg.started += instance.OnRecieveDmg;
+                @RecieveDmg.performed += instance.OnRecieveDmg;
+                @RecieveDmg.canceled += instance.OnRecieveDmg;
             }
         }
     }
@@ -208,5 +236,6 @@ public class @InputSystem : IInputActionCollection, IDisposable
         void OnLeftRight(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnRecieveDmg(InputAction.CallbackContext context);
     }
 }
