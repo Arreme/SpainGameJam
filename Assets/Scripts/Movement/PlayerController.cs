@@ -70,11 +70,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector2 scaleBox;
 
-    private void Start()
-    {
-        Retreat.current.onTimeFinish += fullRight;
-    }
-
     void Awake()
     {
         reading = true;
@@ -103,14 +98,11 @@ public class PlayerController : MonoBehaviour
 
     private void LeftRightInput(InputAction.CallbackContext ctx)
     {
-        if (reading)
-        {
             leftrightcontext = ctx.ReadValue<float>() * - confusionState;
             if ((facingRight && leftrightcontext == 0) || (!facingRight && leftrightcontext == 1))
             {
                 Flip();
             }
-        }
             
     }
 
@@ -221,12 +213,6 @@ public class PlayerController : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
-    }
-
-    private void fullRight()
-    {
-        reading = false;
-        leftrightcontext = 1;
     }
 
     public void Confuse()

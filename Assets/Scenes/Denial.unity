@@ -847,24 +847,24 @@ MonoBehaviour:
     m_Bits: 2048
   ladderRayDist: 0.1
   ladderSpeed: 3
-  fJumpVelocity: 5
+  fJumpVelocity: 10
   confusionState: -1
-  maxSpeed: 7
+  maxSpeed: 9
   linearDrag: 4
-  gravity: 1
-  fallMultiplier: 5
+  gravity: 2
+  fallMultiplier: 2.75
   fJumpPressedRemember: 0
-  fJumpPressedRememberTime: 0.2
+  fJumpPressedRememberTime: 0.05
   fGroundedRemember: 0
-  fGroundedRememberTime: 0.25
-  timeForLongJump: 0
+  fGroundedRememberTime: 0.88
+  timeForLongJump: 2
   fHorizontalAcceleration: 1
-  fHorizontalDampingBasic: 0.5
-  fHorizontalDampingWhenStopping: 0.5
-  fHorizontalDampingWhenTurning: 0.5
+  fHorizontalDampingBasic: 0.355
+  fHorizontalDampingWhenStopping: 0.82
+  fHorizontalDampingWhenTurning: 0.84
   fCutJumpHeight: 0.5
-  positionBox: {x: 0, y: 0}
-  scaleBox: {x: 0, y: 0}
+  positionBox: {x: 0, y: -0.98}
+  scaleBox: {x: 1.16, y: -0.39}
 --- !u!61 &1589931439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -874,7 +874,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1589931437}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5f8e11d81d05f6f499b32455dbde280d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1139,7 +1139,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 1.1752443
   m_Depth: -1
   m_CullingMask:

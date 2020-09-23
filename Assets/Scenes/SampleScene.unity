@@ -352,7 +352,13 @@ MonoBehaviour:
   lmWalls:
     serializedVersion: 2
     m_Bits: 256
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 0
+  ladderRayDist: 0.1
+  ladderSpeed: 3
   fJumpVelocity: 10
+  confusionState: -1
   maxSpeed: 9
   linearDrag: 4
   gravity: 2
@@ -571,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abb9db93fff97e47bcdeaf4a7a0c580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
+  time: 40
   maxSpeed: 9
 --- !u!58 &366489490
 CircleCollider2D:
