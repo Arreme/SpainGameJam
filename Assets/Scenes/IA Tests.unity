@@ -831,24 +831,22 @@ MonoBehaviour:
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 2048
-  ladderRayDist: 1
+  ladderRayDist: 0.1
   ladderSpeed: 3
-  fJumpVelocity: 10
-  _isGrounded: 0
-  _isClimbing: 0
-  maxSpeed: 9
+  fJumpVelocity: 5
+  maxSpeed: 7
   linearDrag: 4
-  gravity: 2
-  fallMultiplier: 2.75
+  gravity: 1
+  fallMultiplier: 5
   fJumpPressedRemember: 0
-  fJumpPressedRememberTime: 0.05
+  fJumpPressedRememberTime: 0.2
   fGroundedRemember: 0
-  fGroundedRememberTime: 0.88
-  timeForLongJump: 2
+  fGroundedRememberTime: 0.25
+  timeForLongJump: 0
   fHorizontalAcceleration: 1
-  fHorizontalDampingBasic: 0.355
-  fHorizontalDampingWhenStopping: 0.82
-  fHorizontalDampingWhenTurning: 0.84
+  fHorizontalDampingBasic: 0.5
+  fHorizontalDampingWhenStopping: 0.5
+  fHorizontalDampingWhenTurning: 0.5
   fCutJumpHeight: 0.5
   positionBox: {x: 0, y: 0}
   scaleBox: {x: 0, y: 0}

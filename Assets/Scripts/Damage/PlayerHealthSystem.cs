@@ -10,13 +10,10 @@ public class PlayerHealthSystem : Damageable
     public Slider slider;
     public float sliderSmooth = 0.15f;
     public bool recievingDmg;
-    private InputSystem input;
 
     new private void Awake()
     {
         base.Awake();
-        input = new InputSystem();
-        input.Player1.RecieveDmg.performed += ctx => RecieveDMG(ctx);
         slider.maxValue = maxHealth;
         slider.value = slider.maxValue;
     }
@@ -28,16 +25,6 @@ public class PlayerHealthSystem : Damageable
         {
             base.Damage(5);
         }
-    }
-
-    private void OnEnable()
-    {
-        input.Enable();
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
     }
 
     private void RecieveDMG(InputAction.CallbackContext ctx)

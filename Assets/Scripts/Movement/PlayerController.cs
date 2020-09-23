@@ -16,14 +16,15 @@ public class PlayerController : MonoBehaviour
     float ladderSpeed = 3f;
     [SerializeField]
     float fJumpVelocity = 5;
-    private bool _isJumping;
     [SerializeField]
+    float confusionState = -1f;
+    private bool _isJumping;
     private bool _isGrounded;
+    private bool _isClimbing;
     private bool facingRight = true;
     private float leftrightcontext;
     private float updowncontext;
-    [SerializeField]
-    private bool _isClimbing;
+   
     Rigidbody2D rigid;
 
     [Header("Physics")]
@@ -31,10 +32,7 @@ public class PlayerController : MonoBehaviour
     public float linearDrag = 4f;
     public float gravity = 1f;
     public float fallMultiplier = 5f;
-
-
-    
-
+       
     [Header("Remember Times")]
     [SerializeField]
     float fJumpPressedRemember = 0;
@@ -107,7 +105,7 @@ public class PlayerController : MonoBehaviour
     {
         if (reading)
         {
-            leftrightcontext = ctx.ReadValue<float>();
+            leftrightcontext = ctx.ReadValue<float>() * - confusionState;
             if ((facingRight && leftrightcontext == 0) || (!facingRight && leftrightcontext == 1))
             {
                 Flip();
@@ -118,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpDownInput(InputAction.CallbackContext ctx)
     {
-        updowncontext = ctx.ReadValue<float>();
+        updowncontext = ctx.ReadValue<float>() * - confusionState;
     }
 
         void FixedUpdate()
@@ -229,6 +227,11 @@ public class PlayerController : MonoBehaviour
     {
         reading = false;
         leftrightcontext = 1;
+    }
+
+    public void Confuse()
+    {
+        confusionState = confusionState * -1;
     }
 
     //private void OnDrawGizmos()
