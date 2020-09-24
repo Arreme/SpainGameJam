@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-
     EnemyPooler enemyPooler;
 
     private void Start()
@@ -14,6 +13,6 @@ public class SpawnEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {       
-        enemyPooler.SpawnFromPool("Enemy", transform.position);
+        enemyPooler.SpawnFromPool("Enemy");
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UIElements;
 
 public class EnemyPooler : MonoBehaviour
@@ -17,10 +18,15 @@ public class EnemyPooler : MonoBehaviour
 
     /*Singleton*/
     public static EnemyPooler instance;
+    public GameObject quad;
+    private float screenX, screenY;
+    private Vector2 pos;
+    private MeshCollider c;
 
     private void Awake()
     {
-        instance = this;    
+        instance = this;
+        c = quad.GetComponent<MeshCollider>();
     }
 
     public Dictionary<string, Queue<GameObject>> poolDictionary;
@@ -30,12 +36,17 @@ public class EnemyPooler : MonoBehaviour
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
-        foreach(Pool pool in pools)
+        foreach (Pool pool in pools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
             for(int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
+
+                screenX = Random.Range(c.bounds.min.x, c.bounds.max.x);
+                screenY = Random.Range(c.bounds.min.y, c.bounds.max.y);
+                pos = new Vector2(screenX, screenY);
+                
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -44,7 +55,7 @@ public class EnemyPooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool (string tag, Vector2 positon)
+    public GameObject SpawnFromPool (string tag)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -55,14 +66,12 @@ public class EnemyPooler : MonoBehaviour
         GameObject objToSpawn = poolDictionary[tag].Dequeue();
 
         objToSpawn.SetActive(true);
-        objToSpawn.transform.position = positon;
 
-        IPooledObj pooledObj = objToSpawn.GetComponent<IPooledObj>();
+        screenX = Random.Range(c.bounds.min.x, c.bounds.max.x);
+        screenY = Random.Range(c.bounds.min.y, c.bounds.max.y);
+        pos = new Vector2(screenX, screenY);
 
-        if(pooledObj != null)
-        {
-            pooledObj.OnObjSpawned();
-        }
+        objToSpawn.transform.position = pos;
 
         poolDictionary[tag].Enqueue(objToSpawn);
         return objToSpawn;
