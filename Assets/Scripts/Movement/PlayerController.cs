@@ -220,10 +220,10 @@ public class PlayerController : MonoBehaviour
         confusionState = confusionState * -1;
     }
 
-    private void OnDrawGizmos()
-    {
-        Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
-        Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + scaleBox;
-        Gizmos.DrawCube(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
+    //    Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + scaleBox;
+    //    Gizmos.DrawCube(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale);
+    //}
 }

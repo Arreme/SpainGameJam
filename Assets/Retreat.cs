@@ -13,6 +13,7 @@ public class Retreat : MonoBehaviour
     private float time = 0;
     [SerializeField]
     private float maxSpeed;
+    private bool done;
     SpriteRenderer sprite;
     Color color;
     void Awake()
@@ -23,20 +24,19 @@ public class Retreat : MonoBehaviour
         current = this;
         sprite = GetComponent<SpriteRenderer>();
         color = sprite.color;
+        done = false;
     }
 
     public event Action onTimeFinish;
     public void onTImeFinish()
     {
-        if (onTimeFinish != null)
-        {
-            onTimeFinish();
-        }
+        onTimeFinish?.Invoke();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         time = Mathf.Max(time - Time.deltaTime,0);
         if (!boosted)
         {
@@ -46,7 +46,12 @@ public class Retreat : MonoBehaviour
         if (time <= 0)
         {
             maxSpeed = Mathf.Max(maxSpeed -= 0.01f,0);
-            onTimeFinish();
+            if (!done)
+            {
+                onTimeFinish();
+                done = true;
+            }
+            
             
         }
     }
