@@ -14,6 +14,7 @@ public class Retreat : MonoBehaviour
     [SerializeField]
     private float maxSpeed;
     private bool done;
+    private bool endRun;
     SpriteRenderer sprite;
     Color color;
     void Awake()
@@ -36,23 +37,35 @@ public class Retreat : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        time = Mathf.Max(time - Time.deltaTime,0);
-        if (!boosted)
+
+        if (!endRun)
         {
-            rb.AddForce(new Vector2(1,0),ForceMode2D.Impulse);
-            rb.velocity = new Vector2(Mathf.Min(rb.velocity.x, maxSpeed),rb.velocity.y);
-        }
-        if (time <= 0)
-        {
-            maxSpeed = Mathf.Max(maxSpeed -= 0.01f,0);
-            if (!done)
+            time = Mathf.Max(time - Time.deltaTime, 0);
+            if (!boosted)
             {
-                onTimeFinish();
-                done = true;
+                rb.AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
+                rb.velocity = new Vector2(Mathf.Min(rb.velocity.x, maxSpeed), rb.velocity.y);
             }
-            
-            
+            if (time <= 0)
+            {
+                maxSpeed = Mathf.Max(maxSpeed -= 0.01f, 0);
+                if (!done)
+                {
+                    onTimeFinish();
+                    done = true;
+                }
+
+
+            }
+        }
+        if (GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<PlayerNear>().getPlayerIsNear())
+        {
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting())
+            {
+                StopCoroutine("actualZoomIn");
+
+                InvokeRepeating("fadeAway", 0, 0.2f);
+            }
         }
     }
 
@@ -62,12 +75,10 @@ public class Retreat : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, collision.gameObject.GetComponent<DogoJumper>().getForce()), ForceMode2D.Impulse);
         }
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("dogEndRun"))
         {
-            StopCoroutine("actualZoomIn");
-
-            InvokeRepeating("fadeAway", 0, 0.2f);
-        }
+                endRun = true;
+        } 
     }
     private void fadeAway()
     {

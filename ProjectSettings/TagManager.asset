@@ -8,6 +8,8 @@ TagManager:
   - dogJumper
   - ground
   - Dog
+  - dogEndRun
+  - PlayerNear
   layers:
   - Default
   - TransparentFX

@@ -54,6 +54,11 @@ public class PlayerHealthSystem : Damageable
         currentHealth = maxHealth;
     }
 
+    public void setRespawn(Transform respawn)
+    {
+        this.respawn = respawn;
+    }
+
     private void SliderUpdate()
     {
         slider.value = Mathf.Lerp(slider.value, currentHealth, sliderSmooth);
