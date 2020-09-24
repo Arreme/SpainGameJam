@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool _isJumping;
     private bool _isGrounded;
     private bool _isClimbing;
+    private bool _isInteracting;
     private bool facingRight = true;
     private float leftrightcontext;
     private float updowncontext;
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
         input.Player1.Jump.performed += ctx => JumpInput(ctx);
         input.Player1.LeftRight.performed += ctx => LeftRightInput(ctx);
         input.Player1.UpDown.performed += ctx => UpDownInput(ctx);
+        input.Player1.Interact.performed += ctx => InteractInput(ctx);
         rigid = GetComponent<Rigidbody2D>();
         
     }
@@ -94,6 +96,10 @@ public class PlayerController : MonoBehaviour
     private void JumpInput(InputAction.CallbackContext ctx)
     {
         _isJumping = ctx.ReadValue<float>() == 0 ? false : true;
+    }
+    private void InteractInput(InputAction.CallbackContext ctx)
+    {
+        _isInteracting = ctx.ReadValue<float>() == 0 ? false : true;
     }
 
     private void LeftRightInput(InputAction.CallbackContext ctx)
@@ -218,6 +224,11 @@ public class PlayerController : MonoBehaviour
     public void Confuse()
     {
         confusionState = confusionState * -1;
+    }
+
+    public bool getIsInteracting()
+    {
+        return _isInteracting;
     }
 
     //private void OnDrawGizmos()
