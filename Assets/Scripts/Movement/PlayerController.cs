@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     private void LeftRightInput(InputAction.CallbackContext ctx)
     {
             leftrightcontext = ctx.ReadValue<float>() * - confusionState;
-            if ((facingRight && leftrightcontext == 0) || (!facingRight && leftrightcontext == 1))
+            if ((facingRight && leftrightcontext == -1) || (!facingRight && leftrightcontext == 1))
             {
                 Flip();
             }

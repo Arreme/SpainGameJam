@@ -9,8 +9,7 @@ public class Retreat : MonoBehaviour
     public static Retreat current;
     Rigidbody2D rb;
     private bool boosted;
-    [SerializeField]
-    private float time = 0;
+    private bool over;
     [SerializeField]
     private float maxSpeed;
     private bool done;
@@ -19,6 +18,7 @@ public class Retreat : MonoBehaviour
     Color color;
     void Awake()
     {
+        over = false;
         rb = GetComponent<Rigidbody2D>();
         boosted = false;
         maxSpeed = 9;
@@ -37,34 +37,28 @@ public class Retreat : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
         if (!endRun)
         {
-            time = Mathf.Max(time - Time.deltaTime, 0);
             if (!boosted)
             {
                 rb.AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
                 rb.velocity = new Vector2(Mathf.Min(rb.velocity.x, maxSpeed), rb.velocity.y);
             }
-            if (time <= 0)
+            if (over)
             {
                 maxSpeed = Mathf.Max(maxSpeed -= 0.01f, 0);
                 if (!done)
                 {
-                    onTimeFinish();
+                    onTImeFinish();
                     done = true;
                 }
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting())
+                {
+                    Debug.Log("Hey");
+                    StopCoroutine("actualZoomIn");
 
-
-            }
-        }
-        if (GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<PlayerNear>().getPlayerIsNear())
-        {
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting())
-            {
-                StopCoroutine("actualZoomIn");
-
-                InvokeRepeating("fadeAway", 0, 0.2f);
+                    InvokeRepeating("fadeAway", 0, 0.2f);
+                }
             }
         }
     }
@@ -77,8 +71,8 @@ public class Retreat : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("dogEndRun"))
         {
-                endRun = true;
-        } 
+            over = true;
+        }
     }
     private void fadeAway()
     {
