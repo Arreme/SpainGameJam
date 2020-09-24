@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abb9db93fff97e47bcdeaf4a7a0c580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 40
+  time: 2
   maxSpeed: 9
 --- !u!58 &366489490
 CircleCollider2D:
@@ -608,6 +608,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -726,6 +727,19 @@ MonoBehaviour:
   trm: {fileID: 231503373}
   clampSpeed: 0.2
   offset: {x: 0, y: 3, z: -50}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60a9ccb926cc714cae4be8ffeab9792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420033}
 --- !u!1 &836937154
 GameObject:
   m_ObjectHideFlags: 0
