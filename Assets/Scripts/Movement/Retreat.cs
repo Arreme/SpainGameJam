@@ -60,7 +60,7 @@ public class Retreat : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("dogJumper"))
         {
-            rb.AddForce(new Vector2(0, 13.5f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, collision.gameObject.GetComponent<DogoJumper>().getForce()), ForceMode2D.Impulse);
         }
         if (collision.gameObject.CompareTag("Player"))
         {
