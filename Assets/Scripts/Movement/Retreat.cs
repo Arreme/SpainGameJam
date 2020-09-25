@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Retreat : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Retreat : MonoBehaviour
     Color color;
     [SerializeField]
     Animator dogAnimator;
+    [SerializeField]
+    Image image;
     void Awake()
     {
         over = false;
@@ -60,9 +63,10 @@ public class Retreat : MonoBehaviour
                     if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting() &&
                     GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<PlayerNear>().getPlayerIsNear())
                     {
-                         StopCoroutine("actualZoomIn");
-
-                         InvokeRepeating("fadeAway", 0, 0.2f);
+                        image.enabled = false;
+                        GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<BoxCollider2D>().enabled = false;
+                        StopCoroutine("actualZoomIn");
+                        InvokeRepeating("fadeAway", 0, 0.2f);
                     }
 
 
