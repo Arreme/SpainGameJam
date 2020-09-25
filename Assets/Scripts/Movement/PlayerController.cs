@@ -231,6 +231,22 @@ public class PlayerController : MonoBehaviour
         return _isInteracting;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = collision.gameObject.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = null;
+        }
+    }
+
     //private void OnDrawGizmos()
     //{
     //    Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
