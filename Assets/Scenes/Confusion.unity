@@ -388,6 +388,10 @@ MonoBehaviour:
   trm: {fileID: 1465789558}
   clampSpeed: 0.2
   offset: {x: 0, y: 0, z: -17}
+  left: 0
+  right: 0
+  bot: 0
+  top: 0
 --- !u!1 &227253010
 GameObject:
   m_ObjectHideFlags: 0

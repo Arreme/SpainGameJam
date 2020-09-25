@@ -104,8 +104,8 @@ public class PlayerController : MonoBehaviour
 
     private void LeftRightInput(InputAction.CallbackContext ctx)
     {
-            leftrightcontext = ctx.ReadValue<float>() * - confusionState;
-            if ((facingRight && leftrightcontext == -1) || (!facingRight && leftrightcontext == 1))
+            leftrightcontext = ctx.ReadValue<float>();
+            if ((facingRight && leftrightcontext * -confusionState == -1) || (!facingRight && leftrightcontext * -confusionState == 1))
             {
                 Flip();
             }
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpDownInput(InputAction.CallbackContext ctx)
     {
-        updowncontext = ctx.ReadValue<float>() * - confusionState;
+        updowncontext = ctx.ReadValue<float>();
     }
 
         void FixedUpdate()
@@ -155,11 +155,11 @@ public class PlayerController : MonoBehaviour
         }
 
         float fHorizontalVelocity = rigid.velocity.x;
-        fHorizontalVelocity += leftrightcontext;
+        fHorizontalVelocity += leftrightcontext * -confusionState;
 
         if (Mathf.Abs(leftrightcontext) < 0.01f)
             fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenStopping, Time.deltaTime * 10f);
-        else if (Mathf.Sign(leftrightcontext) != Mathf.Sign(fHorizontalVelocity))
+        else if (Mathf.Sign(leftrightcontext * -confusionState) != Mathf.Sign(fHorizontalVelocity))
         {
             
             fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenTurning, Time.deltaTime * 10f);
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
             _isClimbing = true;
             if (updowncontext != 0)
             {
-                rigid.velocity = new Vector2(rigid.velocity.x, updowncontext * ladderSpeed);
+                rigid.velocity = new Vector2(rigid.velocity.x, updowncontext * -confusionState * ladderSpeed);
             }
             else
             {
