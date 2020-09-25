@@ -16,6 +16,8 @@ public class Retreat : MonoBehaviour
     private bool endRun;
     SpriteRenderer sprite;
     Color color;
+    [SerializeField]
+    Animator dogAnimator;
     void Awake()
     {
         over = false;
@@ -26,6 +28,7 @@ public class Retreat : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         color = sprite.color;
         done = false;
+        endRun = false;
     }
 
     public event Action onTimeFinish;
@@ -34,33 +37,45 @@ public class Retreat : MonoBehaviour
         onTimeFinish?.Invoke();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (!endRun)
-        {
             if (!boosted)
             {
-                rb.AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
+            dogAnimator.SetBool("Idle", false);
+            dogAnimator.SetBool("Running", true);
+            dogAnimator.SetBool("Jumping", false);
+            
+            rb.AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
                 rb.velocity = new Vector2(Mathf.Min(rb.velocity.x, maxSpeed), rb.velocity.y);
             }
             if (over)
             {
                 maxSpeed = Mathf.Max(maxSpeed -= 0.01f, 0);
+                if(endRun)
+                {
+                    maxSpeed = 0;
+                    dogAnimator.SetBool("Idle", true);
+                    dogAnimator.SetBool("Running", false);
+                    dogAnimator.SetBool("Jumping", false);
+                    if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting() &&
+                    GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<PlayerNear>().getPlayerIsNear())
+                    {
+                         Debug.Log("Hey");
+                         StopCoroutine("actualZoomIn");
+
+                         InvokeRepeating("fadeAway", 0, 0.2f);
+                    }
+
+
+            }
                 if (!done)
                 {
                     onTImeFinish();
                     done = true;
-                }
-                if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting())
-                {
-                    Debug.Log("Hey");
-                    StopCoroutine("actualZoomIn");
-
-                    InvokeRepeating("fadeAway", 0, 0.2f);
-                }
+                
+                 }
+                
             }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,10 +83,18 @@ public class Retreat : MonoBehaviour
         if (collision.gameObject.CompareTag("dogJumper"))
         {
             rb.AddForce(new Vector2(0, collision.gameObject.GetComponent<DogoJumper>().getForce()), ForceMode2D.Impulse);
+            dogAnimator.SetBool("Idle", false);
+            dogAnimator.SetBool("Running", false);
+            dogAnimator.SetBool("Jumping", true);
+        }
+        if (collision.gameObject.CompareTag("dogOver"))
+        {
+            over = true;
         }
         if (collision.gameObject.CompareTag("dogEndRun"))
         {
-            over = true;
+            endRun = true;
+
         }
     }
     private void fadeAway()
