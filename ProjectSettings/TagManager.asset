@@ -12,6 +12,7 @@ TagManager:
   - PlayerNear
   - dogOver
   - darkness
+  - Platform
   layers:
   - Default
   - TransparentFX

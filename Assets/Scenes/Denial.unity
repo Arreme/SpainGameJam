@@ -1047,7 +1047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1316462286}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &39423563
 GameObject:
@@ -4333,10 +4333,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137550715}
-  - component: {fileID: 137550714}
   - component: {fileID: 137550717}
   - component: {fileID: 137550716}
   - component: {fileID: 137550718}
+  - component: {fileID: 137550714}
   m_Layer: 0
   m_Name: Darkness
   m_TagString: darkness
@@ -4363,7 +4363,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9df40f6d4fc3ffe468a0e9708095de28, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4384,12 +4384,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7c916eae0a2100c46a7b4faf85aed42f, type: 3}
-  m_Color: {r: 0.31764707, g: 0.31764707, b: 0.31764707, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2b57c761d122a4c4aa3b2cc24ee7d890, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4403,8 +4403,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137550713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 13, z: 10}
-  m_LocalScale: {x: 26.971281, y: 51.826294, z: 1}
+  m_LocalPosition: {x: 30, y: 13, z: 10}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
@@ -4443,7 +4443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 137550716}
-  darknessSpeedX: 2
+  darknessSpeedX: 6
   darknessRespawn: {fileID: 2122952153}
 --- !u!61 &137550718
 BoxCollider2D:
@@ -4458,18 +4458,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.25033617, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 5}
+    newSize: {x: 1, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4993277, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &139606470
 GameObject:
@@ -14782,7 +14782,7 @@ GameObject:
   - component: {fileID: 546078231}
   m_Layer: 8
   m_Name: Platforms
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33592,7 +33592,6 @@ Transform:
   - {fileID: 1288428077}
   - {fileID: 875222479}
   - {fileID: 1037490312}
-  - {fileID: 2122952153}
   - {fileID: 37787780}
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -45028,7 +45027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736848618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 314, y: 19.8, z: -10}
+  m_LocalPosition: {x: 332, y: 79, z: -10}
   m_LocalScale: {x: 4.3746, y: 4.3746, z: 4.3746}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45080,6 +45079,10 @@ MonoBehaviour:
   trm: {fileID: 1572286586}
   clampSpeed: 0.1
   offset: {x: 0, y: 3, z: -20}
+  left: -28
+  right: 330
+  bot: -10
+  top: 80
 --- !u!114 &1736848624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53664,11 +53667,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122952152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.23429, y: -6.008169, z: 0}
+  m_LocalPosition: {x: 30, y: 13, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1316462286}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2123981416
 GameObject:
