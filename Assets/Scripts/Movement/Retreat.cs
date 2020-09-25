@@ -60,7 +60,6 @@ public class Retreat : MonoBehaviour
                     if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting() &&
                     GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<PlayerNear>().getPlayerIsNear())
                     {
-                         Debug.Log("Hey");
                          StopCoroutine("actualZoomIn");
 
                          InvokeRepeating("fadeAway", 0, 0.2f);
