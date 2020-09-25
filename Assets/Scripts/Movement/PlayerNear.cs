@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerNear : MonoBehaviour
 {
     bool playerIsNear;
+    [SerializeField] public Image image;
+    [SerializeField] public Animator animator;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            image.enabled = true;
+            animator.SetBool("isActive", true);
             playerIsNear = true;
         }
     }
@@ -17,6 +23,8 @@ public class PlayerNear : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            image.enabled = false;
+            animator.SetBool("isActive", false);
             playerIsNear = false;
         }
     }
