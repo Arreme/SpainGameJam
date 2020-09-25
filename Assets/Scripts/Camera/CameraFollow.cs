@@ -37,7 +37,7 @@ public class CameraFollow : MonoBehaviour
         finalPos = new Vector3(
             Mathf.Clamp(finalPos.x, left, right),
             Mathf.Clamp(finalPos.y, bot, top),
-            zLock);
+            finalPos.z);
         transform.position = finalPos;
     }
 

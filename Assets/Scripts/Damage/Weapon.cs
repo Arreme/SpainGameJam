@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
             {
                 torch.enabled = false;
             }            
-            dkc.Reset();
+            dkc.Reset(true);
 
             torch = dkc;
         }
