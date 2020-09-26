@@ -742,7 +742,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &312380916
 RectTransform:
@@ -1337,7 +1337,6 @@ MonoBehaviour:
   respawn: {fileID: 0}
   slider: {fileID: 0}
   sliderSmooth: 0.15
-  recievingDmg: 0
 --- !u!70 &575656572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1376,6 +1375,8 @@ MonoBehaviour:
   ladderSpeed: 3
   fJumpVelocity: 15
   confusionState: -1
+  leftrightcontext: 0
+  updowncontext: 0
   maxSpeed: 9
   linearDrag: 4
   gravity: 2
@@ -1385,6 +1386,7 @@ MonoBehaviour:
   fGroundedRemember: 0
   fGroundedRememberTime: 0.88
   timeForLongJump: 2
+  isReading: 0
   fHorizontalAcceleration: 1
   fHorizontalDampingBasic: 0.355
   fHorizontalDampingWhenStopping: 0.82
@@ -3525,7 +3527,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 67.29138
+  field of view: 67
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3604,9 +3606,9 @@ MonoBehaviour:
   trm: {fileID: 575656576}
   clampSpeed: 0.2
   offset: {x: 0, y: 10, z: -25}
-  left: -78
-  right: 248
-  bot: -50
+  left: -72
+  right: 242
+  bot: -20
   top: 0
 --- !u!1 &1207024097
 GameObject:
