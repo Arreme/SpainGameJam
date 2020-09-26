@@ -14,6 +14,8 @@ public class EnemyPooler : MonoBehaviour
         public GameObject prefab;
         public int size;
 
+        
+
     }
 
     /*Singleton*/
@@ -77,4 +79,11 @@ public class EnemyPooler : MonoBehaviour
         poolDictionary[tag].Enqueue(objToSpawn);
         return objToSpawn;
     }
+
+    public int getSize()
+    {
+        return pools[0].size;
+    }
+
+
 }
