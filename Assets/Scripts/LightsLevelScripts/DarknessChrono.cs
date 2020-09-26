@@ -37,7 +37,7 @@ public class DarknessChrono : MonoBehaviour
         {
             if (currentTime < startingTime-0.05)
             {
-                currentTime += 2 * Time.deltaTime;
+                currentTime += 4 * Time.deltaTime;
                 multiplier = currentTime / startingTime;
                 darkness.pointLightOuterRadius = outer * multiplier + 1;
                 darkness.pointLightInnerRadius = inner * multiplier + 1;
@@ -48,6 +48,8 @@ public class DarknessChrono : MonoBehaviour
             }
             
         }
+
+
     }
 
     public void Reset(bool reset)
