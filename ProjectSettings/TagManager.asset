@@ -16,6 +16,7 @@ TagManager:
   - darknessStop
   - darknessEnlarger
   - Button
+  - PlayerEnable
   layers:
   - Default
   - TransparentFX
