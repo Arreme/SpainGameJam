@@ -9,10 +9,26 @@ public class SpawnEnemy : MonoBehaviour
     private void Start()
     {
         enemyPooler = EnemyPooler.instance;
+        InvokeRepeating("spawnMob", 0, 2f);
     }
 
     private void FixedUpdate()
-    {       
-        enemyPooler.SpawnFromPool("Enemy");
+    {
+        
+        
+    }
+
+    private void spawnMob()
+    {
+        int alive = 0;
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            alive++;
+        }
+
+        if (GameObject.FindGameObjectWithTag("Spawner").GetComponentInParent<EnemyPooler>().getSize() >= alive)
+        {
+            enemyPooler.SpawnFromPool("Enemy");
+        }
     }
 }

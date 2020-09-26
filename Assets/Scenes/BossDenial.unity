@@ -598,8 +598,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 369899711}
-  - component: {fileID: 369899710}
   - component: {fileID: 369899709}
+  - component: {fileID: 369899710}
   m_Layer: 0
   m_Name: DarknessAppear
   m_TagString: Untagged
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 369899708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8a235891e3cad40b494e2cc5e81081, type: 3}
+  m_Script: {fileID: 11500000, guid: ca3a6c2ed4dd3db499476636c4f6f608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &369899711
@@ -750,11 +750,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498406165}
-  - component: {fileID: 498406164}
   - component: {fileID: 498406163}
   - component: {fileID: 498406162}
   - component: {fileID: 498406161}
   - component: {fileID: 498406160}
+  - component: {fileID: 498406164}
   m_Layer: 0
   m_Name: Darkness
   m_TagString: darkness
@@ -881,14 +881,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 498406159}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b263a2c2b07933f4faf4438a56d4bfa4, type: 3}
+  m_Script: {fileID: 11500000, guid: f448475713c1d2c44a23352c7c25e09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 498406163}
   darknessSpeedX: 5
   darknessRespawn: {fileID: 51714554}
-  dogRespawn: {fileID: 0}
-  stop: 0
 --- !u!4 &498406165
 Transform:
   m_ObjectHideFlags: 0
