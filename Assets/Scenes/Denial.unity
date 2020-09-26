@@ -28617,7 +28617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1088195193
 Transform:
   m_ObjectHideFlags: 0
@@ -36135,7 +36135,7 @@ MonoBehaviour:
   dialogueField: {fileID: 1743307583}
   animator: {fileID: 365049888}
   animator2: {fileID: 1829702705}
-  typingDelay: 0.01
+  typingDelay: 0.05
 --- !u!61 &1356823706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43138,7 +43138,7 @@ MonoBehaviour:
   dialogueField: {fileID: 1994095446}
   animator: {fileID: 1515355047}
   animator2: {fileID: 1544827997}
-  typingDelay: 0.01
+  typingDelay: 0.05
 --- !u!1 &1601040054
 GameObject:
   m_ObjectHideFlags: 0
@@ -56163,7 +56163,7 @@ MonoBehaviour:
     sentences:
     - Qu...Que esta pasando? Donde estoy?
     - Pero si esta aqui (dog). Eh! Por que corre?! Voy a seguirlo.
-    - Con la A-D deberia poder moverme de derecha a izquierda.
+    - Con la A-D deberia poder moverme de izquierda a derecha.
     - Y con el SPACE deberia poder saltar a las plataformas.
   dialogueField: {fileID: 635075772}
   animator: {fileID: 75580312}
