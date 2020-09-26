@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DarknessFollows : MonoBehaviour
+public class DarknessFollowsDog : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D rb;
@@ -10,6 +10,8 @@ public class DarknessFollows : MonoBehaviour
     float darknessSpeedX;
     [SerializeField]
     Transform darknessRespawn;
+    [SerializeField]
+    Transform dogRespawn;
     bool stop;
     void Start()
     {
@@ -30,8 +32,10 @@ public class DarknessFollows : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            GameObject.FindGameObjectWithTag("Dog").transform.position = dogRespawn.transform.position;
+            GameObject.FindGameObjectWithTag("Dog").GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>().Kill();
             transform.position = darknessRespawn.transform.position;
         }

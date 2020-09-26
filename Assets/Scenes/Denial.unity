@@ -4523,11 +4523,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137550715}
-  - component: {fileID: 137550717}
   - component: {fileID: 137550716}
   - component: {fileID: 137550718}
   - component: {fileID: 137550714}
   - component: {fileID: 137550719}
+  - component: {fileID: 137550717}
   m_Layer: 0
   m_Name: Darkness
   m_TagString: darkness
