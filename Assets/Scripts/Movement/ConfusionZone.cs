@@ -16,23 +16,27 @@ public class ConfusionZone : MonoBehaviour
             chrom = tmp;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().Confuse();
+            yield return new WaitForSeconds(0.4f);
+            collision.gameObject.GetComponent<PlayerController>().ConfuseActivate();
             StopAllCoroutines();
             StartCoroutine(DoChrome());
+            
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private IEnumerator OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().Confuse();
+            yield return new WaitForSeconds(0.4f);
+            collision.gameObject.GetComponent<PlayerController>().ConfuseDeactivate();
             StopAllCoroutines();
             StartCoroutine(DontChrome());
+            
         }
     }
 

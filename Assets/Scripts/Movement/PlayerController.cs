@@ -245,9 +245,14 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
     }
 
-    public void Confuse()
+    public void ConfuseActivate()
     {
-        confusionState = confusionState * -1;
+        confusionState = 1;
+    }
+
+    public void ConfuseDeactivate()
+    {
+        confusionState = -1;
     }
 
     public bool getIsInteracting()
