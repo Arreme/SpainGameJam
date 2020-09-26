@@ -45,6 +45,7 @@ public class EnemyPooler : MonoBehaviour
 
                 screenX = Random.Range(c.bounds.min.x, c.bounds.max.x);
                 screenY = Random.Range(c.bounds.min.y, c.bounds.max.y);
+
                 pos = new Vector2(screenX, screenY);
                 
                 obj.SetActive(false);

@@ -14,6 +14,9 @@ public class PlayerNear : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             image.enabled = true;
+            collision.GetComponent<PlayerController>().isReading = true;
+            collision.GetComponent<PlayerController>().leftrightcontext = 0;
+            collision.GetComponent<PlayerController>().updowncontext = 0;
             animator.SetBool("isActive", true);
             playerIsNear = true;
         }

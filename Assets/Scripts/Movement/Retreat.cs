@@ -19,8 +19,6 @@ public class Retreat : MonoBehaviour
     Color color;
     [SerializeField]
     Animator dogAnimator;
-    [SerializeField]
-    Image image;
     void Awake()
     {
         over = false;
@@ -63,8 +61,8 @@ public class Retreat : MonoBehaviour
                     if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().getIsInteracting() &&
                     GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<PlayerNear>().getPlayerIsNear())
                     {
-                        image.enabled = false;
-                        GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<BoxCollider2D>().enabled = false;
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isReading = false;
+                        GameObject.FindGameObjectWithTag("PlayerNear").GetComponent<BoxCollider2D>().enabled = false;                        
                         StopCoroutine("actualZoomIn");
                         InvokeRepeating("fadeAway", 0, 0.2f);
                     }
