@@ -9,7 +9,6 @@ public class PlayerHealthSystem : Damageable
     public Transform respawn;
     public Slider slider;
     public float sliderSmooth = 0.15f;
-    public bool recievingDmg;
 
     new private void Awake()
     {
@@ -21,15 +20,6 @@ public class PlayerHealthSystem : Damageable
     private void FixedUpdate()
     {
         SliderUpdate();
-        if (recievingDmg)
-        {
-            base.Damage(5);
-        }
-    }
-
-    private void RecieveDMG(InputAction.CallbackContext ctx)
-    {
-        recievingDmg = ctx.ReadValue<float>() == 0 ? false : true;
     }
 
     public void RestoreHealth()
@@ -52,6 +42,12 @@ public class PlayerHealthSystem : Damageable
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameObject.transform.position = respawn.transform.position;
         currentHealth = maxHealth;
+
+        GameObject[] playerEnables = GameObject.FindGameObjectsWithTag("PlayerEnable");
+        foreach (GameObject playerEnable in playerEnables)
+        {
+            playerEnable.GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
 
     public void setRespawn(Transform respawn)

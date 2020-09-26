@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool _isClimbing;
     private bool _isInteracting;
     private bool facingRight = true;
-    private float leftrightcontext;
-    private float updowncontext;
+    public float leftrightcontext;
+    public float updowncontext;
    
     Rigidbody2D rigid;
 
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float timeForLongJump;
     private float timePressed;
-    private bool reading;
+    public bool isReading;
 
     [Header("Horizontal Movement")]
     [SerializeField]
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        reading = true;
+        isReading = false;
         input = new InputSystem();
         input.Player1.Jump.performed += ctx => JumpInput(ctx);
         input.Player1.LeftRight.performed += ctx => LeftRightInput(ctx);
@@ -95,8 +95,17 @@ public class PlayerController : MonoBehaviour
 
     private void JumpInput(InputAction.CallbackContext ctx)
     {
-        _isJumping = ctx.ReadValue<float>() == 0 ? false : true;
+        if (!isReading)
+        {
+            _isJumping = ctx.ReadValue<float>() == 0 ? false : true;
+        }
+        else
+        {
+            _isJumping = false;
+        }
+        
     }
+
     private void InteractInput(InputAction.CallbackContext ctx)
     {
         _isInteracting = ctx.ReadValue<float>() == 0 ? false : true;
@@ -104,17 +113,32 @@ public class PlayerController : MonoBehaviour
 
     private void LeftRightInput(InputAction.CallbackContext ctx)
     {
+        if (!isReading)
+        {
             leftrightcontext = ctx.ReadValue<float>();
             if ((facingRight && leftrightcontext * -confusionState == -1) || (!facingRight && leftrightcontext * -confusionState == 1))
             {
                 Flip();
             }
+        }
+        else
+        {
+            leftrightcontext = 0;
+        }            
             
     }
 
     private void UpDownInput(InputAction.CallbackContext ctx)
     {
-        updowncontext = ctx.ReadValue<float>();
+        if (!isReading)
+        {
+            updowncontext = ctx.ReadValue<float>();
+        }
+        else
+        {
+            updowncontext = 0;
+        }
+            
     }
 
         void FixedUpdate()

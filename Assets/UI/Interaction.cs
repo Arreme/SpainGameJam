@@ -37,6 +37,9 @@ public class Interaction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            collision.GetComponent<PlayerController>().isReading = true;
+            collision.GetComponent<PlayerController>().leftrightcontext = 0;
+            collision.GetComponent<PlayerController>().updowncontext = 0;
             StartDialogue();
             inRange = true;
         }
@@ -90,6 +93,7 @@ public class Interaction : MonoBehaviour
     public void EndDialogue()
     {
         StopAllCoroutines();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isReading = false;
         dialogueField.SetText("");
         animator.SetBool("isOpen", false);
         animator2.SetBool("isOpen", false);

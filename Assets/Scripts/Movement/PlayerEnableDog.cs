@@ -12,4 +12,12 @@ public class PlayerEnableDog : MonoBehaviour
            dog.GetComponent<Retreat>().enabled = true;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
 }
