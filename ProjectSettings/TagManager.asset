@@ -18,6 +18,7 @@ TagManager:
   - Button
   - PlayerEnable
   - Spawner
+  - Door
   layers:
   - Default
   - TransparentFX

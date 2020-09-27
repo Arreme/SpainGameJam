@@ -51,7 +51,7 @@ public class Retreat : MonoBehaviour
             }
             if (over)
             {
-                maxSpeed = Mathf.Max(maxSpeed -= 0.01f, 0);
+                maxSpeed = Mathf.Max(maxSpeed -= 0.005f, 0);
                 if(endRun)
                 {
                     maxSpeed = 0;

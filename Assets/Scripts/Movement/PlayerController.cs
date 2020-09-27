@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerController : MonoBehaviour
 {
     private InputSystem input;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool _isJumping;
     private bool _isGrounded;
     private bool _isClimbing;
-    private bool _isInteracting;
+    public bool _isInteracting;
     private bool facingRight = true;
     public float leftrightcontext;
     public float updowncontext;
@@ -79,8 +80,7 @@ public class PlayerController : MonoBehaviour
         input.Player1.LeftRight.performed += ctx => LeftRightInput(ctx);
         input.Player1.UpDown.performed += ctx => UpDownInput(ctx);
         input.Player1.Interact.performed += ctx => InteractInput(ctx);
-        rigid = GetComponent<Rigidbody2D>();
-        
+        rigid = GetComponent<Rigidbody2D>();        
     }
 
     private void OnEnable()

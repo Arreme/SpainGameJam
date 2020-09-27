@@ -50,7 +50,7 @@ public class Interaction : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             EndDialogue();
-            inRange = false;
+            inRange = false;            
         }
     }
 
@@ -92,10 +92,12 @@ public class Interaction : MonoBehaviour
 
     public void EndDialogue()
     {
+        GetComponent<Collider2D>().enabled = false;
         StopAllCoroutines();
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isReading = false;
         dialogueField.SetText("");
         animator.SetBool("isOpen", false);
         animator2.SetBool("isOpen", false);
+        
     }
 }
