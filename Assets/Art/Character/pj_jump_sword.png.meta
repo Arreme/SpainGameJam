@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 637a368906f63e34db39ade1c98397e0
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 941124500903308090
+    second: pj_jump_sword_0
+  - first:
+      213: -8404004787745874539
+    second: pj_jump_sword_1
+  - first:
+      213: 7942104057698273856
+    second: pj_jump_sword_2
+  - first:
+      213: -2316237004792107961
+    second: pj_jump_sword_3
+  - first:
+      213: 7462529512596857898
+    second: pj_jump_sword_4
+  - first:
+      213: -2377059849857867618
+    second: pj_jump_sword_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -87,7 +105,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pj_jump_sword_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b22cd4fbb8f0d00800000000000000
+      internalID: 941124500903308090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pj_jump_sword_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d99bffb2afe5b80800000000000000
+      internalID: -8404004787745874539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pj_jump_sword_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 6
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a4b48bf85083e60800000000000000
+      internalID: 7942104057698273856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pj_jump_sword_3
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 19
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c60c157b21bdfd0800000000000000
+      internalID: -2316237004792107961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pj_jump_sword_4
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 7
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a246434bd0b309760800000000000000
+      internalID: 7462529512596857898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pj_jump_sword_5
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90e06729acf20fd0800000000000000
+      internalID: -2377059849857867618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

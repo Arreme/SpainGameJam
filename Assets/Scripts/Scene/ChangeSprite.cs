@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class ChangeSprite : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private RuntimeAnimatorController animator;
+    [SerializeField]
+    private Sprite sprite;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Animator>().runtimeAnimatorController = animator;
+            collision.GetComponent<SpriteRenderer>().sprite = sprite;
+        }
     }
 }
