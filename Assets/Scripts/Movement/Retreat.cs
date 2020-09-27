@@ -106,4 +106,9 @@ public class Retreat : MonoBehaviour
             StopAllCoroutines();
     }
 
+    public void setOver(bool setOver)
+    {
+        over = setOver;
+    }
+
 }

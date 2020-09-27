@@ -34,6 +34,9 @@ public class DarknessFollowsDog : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            StopCoroutine("actualZoomIn");
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().offset = new Vector3(0, 3, -20);
+            GameObject.FindGameObjectWithTag("Dog").GetComponent<Retreat>().setOver(false);            
             GameObject.FindGameObjectWithTag("Dog").transform.position = dogRespawn.transform.position;
             GameObject.FindGameObjectWithTag("Dog").GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>().Kill();
