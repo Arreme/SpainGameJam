@@ -12,9 +12,7 @@ public class EnemyPooler : MonoBehaviour
     {
         public string tag;
         public GameObject prefab;
-        public int size;
-
-        
+        public int size;        
 
     }
 
@@ -22,7 +20,7 @@ public class EnemyPooler : MonoBehaviour
     public static EnemyPooler instance;
     public GameObject quad;
     private float screenX, screenY;
-    private Vector2 pos;
+    private Vector3 pos;
     private MeshCollider c;
 
     private void Awake()
@@ -44,11 +42,6 @@ public class EnemyPooler : MonoBehaviour
             for(int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
-
-                screenX = Random.Range(c.bounds.min.x, c.bounds.max.x);
-                screenY = Random.Range(c.bounds.min.y, c.bounds.max.y);
-
-                pos = new Vector2(screenX, screenY);
                 
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
@@ -72,7 +65,7 @@ public class EnemyPooler : MonoBehaviour
 
         screenX = Random.Range(c.bounds.min.x, c.bounds.max.x);
         screenY = Random.Range(c.bounds.min.y, c.bounds.max.y);
-        pos = new Vector2(screenX, screenY);
+        pos = new Vector3(screenX, screenY, 10);
 
         objToSpawn.transform.position = pos;
 

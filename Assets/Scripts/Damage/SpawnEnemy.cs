@@ -12,11 +12,6 @@ public class SpawnEnemy : MonoBehaviour
         InvokeRepeating("spawnMob", 0, 2f);
     }
 
-    private void FixedUpdate()
-    {
-        
-        
-    }
 
     private void spawnMob()
     {
