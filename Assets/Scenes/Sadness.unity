@@ -7344,6 +7344,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9702806, y: 6.3238235}
   m_EdgeRadius: 0.05
+--- !u!4 &700959232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1551966757925951143, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
+  m_PrefabInstance: {fileID: 700959227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &713589652
 GameObject:
   m_ObjectHideFlags: 0
@@ -19278,7 +19283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d82663a2a6381b4fb7e3587c409196c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trm: {fileID: 0}
+  trm: {fileID: 700959232}
   clampSpeed: 0.2
   offset: {x: 0, y: 1, z: -10}
   left: -300
