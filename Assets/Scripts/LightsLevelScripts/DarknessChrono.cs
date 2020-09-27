@@ -31,7 +31,7 @@ public class DarknessChrono : MonoBehaviour
         {
             currentTime = 0;
 
-            Debug.Log("Las sombras son mu malas y te matan");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>().Kill();
         }
         if (charge)
         {
