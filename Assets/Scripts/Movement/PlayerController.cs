@@ -171,7 +171,6 @@ public class PlayerController : MonoBehaviour
             {
                 rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * fCutJumpHeight);
                 animator.SetBool("isJumping", true);
-                animator.SetFloat("Velocity", 0);
             } else
             {
                 timePressed -= Time.deltaTime;
@@ -183,7 +182,6 @@ public class PlayerController : MonoBehaviour
             fGroundedRemember = 0;
             rigid.velocity = new Vector2(rigid.velocity.x, fJumpVelocity);
             animator.SetBool("isJumping", true);
-            animator.SetFloat("Velocity", 0);
             if (timePressed <= 0)
                 _doingLongJump = true;
         }
