@@ -42598,6 +42598,7 @@ GameObject:
   - component: {fileID: 1579922836}
   - component: {fileID: 1579922838}
   - component: {fileID: 1579922837}
+  - component: {fileID: 1579922839}
   m_Layer: 0
   m_Name: End
   m_TagString: Untagged
@@ -42636,7 +42637,9 @@ MonoBehaviour:
     sentences:
     - Pe...Pero qu...que acaba de pasar? Por que ha desaparecido?
     - Recuerdo su muerte, pero pensaba que era una pesadilla.
-    - No puede ser real nada de esto!
+    - 'No puede ser real nada de esto! Uh? Qu...que es esto? '
+    - Me ha dejado el palo con el que soliamos jugar...
+    - No se que es lo que me espera, me lo llevare.
   dialogueField: {fileID: 58658371}
   animator: {fileID: 201888316}
   animator2: {fileID: 1531670558}
@@ -42667,6 +42670,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4206543, y: 3.9225464}
   m_EdgeRadius: 0
+--- !u!114 &1579922839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579922835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66038e03fa643c45a33b7d405ffc1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9100000, guid: 39d6beabd9b32cc4db0e731dfe0d81b9, type: 2}
+  sprite: {fileID: -6159725111967790017, guid: 2f36748a4fa01b44ba4b14cd9029cfdf, type: 3}
 --- !u!1 &1581029086
 GameObject:
   m_ObjectHideFlags: 0

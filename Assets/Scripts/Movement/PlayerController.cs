@@ -82,7 +82,11 @@ public class PlayerController : MonoBehaviour
         input.Player1.LeftRight.performed += ctx => LeftRightInput(ctx);
         input.Player1.UpDown.performed += ctx => UpDownInput(ctx);
         input.Player1.Interact.performed += ctx => InteractInput(ctx);
-        rigid = GetComponent<Rigidbody2D>();        
+        rigid = GetComponent<Rigidbody2D>();
+
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(animator);
+        DontDestroyOnLoad(this.GetComponent<SpriteRenderer>().sprite);
     }
 
     private void OnEnable()
