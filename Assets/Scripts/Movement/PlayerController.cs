@@ -155,6 +155,9 @@ public class PlayerController : MonoBehaviour
         {
             fGroundedRemember = fGroundedRememberTime;
             _doingLongJump = false;
+            animator.SetBool("isJumping", false);
+            animator.SetFloat("Velocity", 1);
+
         }
 
         fJumpPressedRemember -= Time.deltaTime;
@@ -167,6 +170,8 @@ public class PlayerController : MonoBehaviour
             if (rigid.velocity.y > 0 && timePressed >= 0.7 && !_doingLongJump)
             {
                 rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * fCutJumpHeight);
+                animator.SetBool("isJumping", true);
+                animator.SetFloat("Velocity", 0);
             } else
             {
                 timePressed -= Time.deltaTime;
@@ -177,6 +182,8 @@ public class PlayerController : MonoBehaviour
             fJumpPressedRemember = 0;
             fGroundedRemember = 0;
             rigid.velocity = new Vector2(rigid.velocity.x, fJumpVelocity);
+            animator.SetBool("isJumping", true);
+            animator.SetFloat("Velocity", 0);
             if (timePressed <= 0)
                 _doingLongJump = true;
         }
@@ -211,6 +218,7 @@ public class PlayerController : MonoBehaviour
         if (isLadder)
         {
             _isClimbing = true;
+            animator.SetBool("isClimbing", true);
             if (updowncontext != 0)
             {
                 rigid.velocity = new Vector2(rigid.velocity.x, updowncontext * -confusionState * ladderSpeed);
@@ -222,6 +230,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isClimbing", false);
             _isClimbing = false;
         }
     }
