@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 positionBox;
     [SerializeField]
     private Vector2 scaleBox;
+    [SerializeField]
+    private Animator animator;
 
     void Awake()
     {
@@ -148,6 +150,7 @@ public class PlayerController : MonoBehaviour
         _isGrounded = Physics2D.OverlapBox(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale, 0, lmWalls);
         modifyPhysics();
         fGroundedRemember -= Time.deltaTime;
+
         if (_isGrounded || _isClimbing)
         {
             fGroundedRemember = fGroundedRememberTime;
@@ -182,17 +185,22 @@ public class PlayerController : MonoBehaviour
         fHorizontalVelocity += leftrightcontext * -confusionState;
 
         if (Mathf.Abs(leftrightcontext) < 0.01f)
-            fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenStopping, Time.deltaTime * 10f);
-        else if (Mathf.Sign(leftrightcontext * -confusionState) != Mathf.Sign(fHorizontalVelocity))
         {
-            
-            fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenTurning, Time.deltaTime * 10f);
+            fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenStopping, Time.deltaTime * 10f);
+            animator.SetFloat("Velocity", 0);
         }
             
+        else if (Mathf.Sign(leftrightcontext * -confusionState) != Mathf.Sign(fHorizontalVelocity))
+        {            
+            fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenTurning, Time.deltaTime * 10f);
+        }
         else
+        {
             fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingBasic, Time.deltaTime * 10f);
+            animator.SetFloat("Velocity", Mathf.Abs(fHorizontalVelocity));
+        }        
 
-        
+
         if (Mathf.Abs(fHorizontalVelocity) <= maxSpeed)
             rigid.velocity = new Vector2(fHorizontalVelocity, rigid.velocity.y);
         else
@@ -276,10 +284,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
-    //    Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + scaleBox;
-    //    Gizmos.DrawCube(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale);
-    //}
+    private void OnDrawGizmos()
+    {
+        Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + positionBox;
+        Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + scaleBox;
+        Gizmos.DrawCube(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale);
+    }
 }
