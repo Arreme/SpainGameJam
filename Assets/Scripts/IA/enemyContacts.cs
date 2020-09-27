@@ -38,18 +38,8 @@ public class enemyContacts : MonoBehaviour
         RaycastHit2D nextPlayer = Physics2D.Raycast(playerContact.position, playerContact.right, distance, whatIsPlayer);
         playerContactHit = nextPlayer;
 
-        RaycastHit2D whatBehind = Physics2D.Raycast(playerBehind.position, playerBehind.right * -1, behindDistance);
-        if (whatBehind)
-        {
-            if (whatBehind.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
-            {
-                playerBehindHit = true;
-            }
-        }
-        else
-        {
-            playerBehindHit = false;
-        }
+        RaycastHit2D whatBehind = Physics2D.Raycast(playerBehind.position, playerBehind.right * -1, behindDistance, whatIsPlayer);
+        playerBehindHit = whatBehind;
     }
 
     private void OnDrawGizmos()

@@ -59,4 +59,9 @@ public class PlayerHealthSystem : Damageable
     {
         slider.value = Mathf.Lerp(slider.value, currentHealth, sliderSmooth);
     }
+
+    public void takeDamage(float damage)
+    {
+        currentHealth -= damage;
+    }
 }
