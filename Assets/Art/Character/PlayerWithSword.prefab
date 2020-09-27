@@ -32,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.06, y: 0.5, z: 10}
   m_LocalScale: {x: 0.33523947, y: 0.43925372, z: 0.20980024}
-  m_Children: []
+  m_Children:
+  - {fileID: 6472181050531780751}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,6 +134,7 @@ MonoBehaviour:
   _isInteracting: 0
   leftrightcontext: 0
   updowncontext: 0
+  weapon: {fileID: 0}
   maxSpeed: 9
   linearDrag: 4
   gravity: 2
@@ -213,3 +215,89 @@ MonoBehaviour:
   respawn: {fileID: 0}
   slider: {fileID: 0}
   sliderSmooth: 0.15
+--- !u!1 &6180707987028362242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6472181050531780751}
+  - component: {fileID: 7541175378356210655}
+  - component: {fileID: 5732555647049903460}
+  m_Layer: 9
+  m_Name: WeaponAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6472181050531780751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6180707987028362242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2389479993566351132}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7541175378356210655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6180707987028362242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b19917eb5fade4b9f6a6512a287195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  forceX: 10
+  forceY: 10
+  enemy: {fileID: 0}
+  torch: {fileID: 0}
+--- !u!60 &5732555647049903460
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6180707987028362242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.026211575, y: 0.3298595}
+      - {x: -0.0005555153, y: -0.43063042}
+      - {x: 0.006286949, y: -2.4863865}
+      - {x: 0.024349302, y: -2.9706094}
+      - {x: 1.7815906, y: -2.5453413}
+      - {x: 2.3454156, y: -2.279554}
+      - {x: 2.946729, y: -1.7987632}
+      - {x: 3.4392827, y: -0.7663449}
+      - {x: 3.6768863, y: 2.263193}
+      - {x: 3.7072453, y: 2.3702476}
+      - {x: 2.5108266, y: 3.4453506}
+      - {x: -0.12920518, y: 4.376625}

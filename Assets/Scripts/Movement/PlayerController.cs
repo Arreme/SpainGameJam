@@ -22,12 +22,15 @@ public class PlayerController : MonoBehaviour
     private bool _isJumping;
     private bool _isGrounded;
     private bool _isClimbing;
+    private bool _isAttacking = false;
     public bool _isInteracting;
     private bool facingRight = true;
     public float leftrightcontext;
     public float updowncontext;
-   
+
     Rigidbody2D rigid;
+    [SerializeField]
+    private GameObject weapon;
 
     [Header("Physics")]
     public float maxSpeed = 7f;
@@ -82,6 +85,7 @@ public class PlayerController : MonoBehaviour
         input.Player1.LeftRight.performed += ctx => LeftRightInput(ctx);
         input.Player1.UpDown.performed += ctx => UpDownInput(ctx);
         input.Player1.Interact.performed += ctx => InteractInput(ctx);
+        input.Player1.Attack.performed += ctx => AttackInput(ctx);
         rigid = GetComponent<Rigidbody2D>();
 
         DontDestroyOnLoad(this);
@@ -97,6 +101,13 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         input.Disable();
+    }
+
+    private void AttackInput(InputAction.CallbackContext ctx)
+    {
+        _isAttacking = ctx.ReadValue<float>() == 0 ? false : true;
+        /*if (ctx.phase == InputActionPhase.Started) _isAttacking = true;
+        if (ctx.phase == InputActionPhase.Canceled) _isAttacking = false;*/
     }
 
     private void JumpInput(InputAction.CallbackContext ctx)
@@ -154,6 +165,18 @@ public class PlayerController : MonoBehaviour
         _isGrounded = Physics2D.OverlapBox(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale, 0, lmWalls);
         modifyPhysics();
         fGroundedRemember -= Time.deltaTime;
+
+
+        if (_isAttacking)
+        {
+            weapon.GetComponent<Collider2D>().enabled = true;
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            weapon.GetComponent<Collider2D>().enabled = false;
+            animator.SetBool("isAttacking", false);
+        }        
 
         if (_isGrounded || _isClimbing)
         {
