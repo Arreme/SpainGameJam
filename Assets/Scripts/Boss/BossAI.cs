@@ -54,7 +54,14 @@ public class BossAI : MonoBehaviour
                 timeDecided = false;
                 attack.mainAttack();
             }
-            if (health.CurrentHealth > 50)
+            if(health.CurrentHealth <= 100 && health.CurrentHealth > 75)
+            {
+                if (recievedDMG)
+                {
+                    transform.position = new Vector3(Random.Range(50.0f, 80.0f), -8.3f, 10.0f);
+                }
+            }
+            if (health.CurrentHealth <= 75 && health.CurrentHealth > 50)
             {
                 if (recievedDMG)
                 {
@@ -63,7 +70,6 @@ public class BossAI : MonoBehaviour
                 }
             }
         }
-        
     }
 
     private void bossState(float health)
