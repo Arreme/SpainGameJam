@@ -13709,6 +13709,10 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 305333450}
+    - target: {fileID: 2389479993566351121, guid: 07ed49e7b6d28a54cae648e9de8d0bb8, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 2032575748}
     - target: {fileID: 2389479993566351123, guid: 07ed49e7b6d28a54cae648e9de8d0bb8, type: 3}
       propertyPath: m_Name
       value: PlayerWithSword
@@ -13766,6 +13770,11 @@ PrefabInstance:
 --- !u!4 &2032575747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2389479993566351132, guid: 07ed49e7b6d28a54cae648e9de8d0bb8, type: 3}
+  m_PrefabInstance: {fileID: 2032575746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2032575748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6180707987028362242, guid: 07ed49e7b6d28a54cae648e9de8d0bb8, type: 3}
   m_PrefabInstance: {fileID: 2032575746}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058240137
