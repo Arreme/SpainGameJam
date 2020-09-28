@@ -23,4 +23,12 @@ public class DarknessFades : MonoBehaviour
         if (color.a == 1f)
             StopAllCoroutines();
     }
+
+    private void fadeOut()
+    {
+        color.a -= 0.05f;
+        sprite.color = color;
+        if (color.a == 0f)
+            StopAllCoroutines();
+    }
 }
