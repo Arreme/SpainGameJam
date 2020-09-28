@@ -34132,7 +34132,7 @@ PrefabInstance:
     - target: {fileID: 1551966757925951146, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 1259078411}
+      objectReference: {fileID: 0}
     - target: {fileID: 1551966757925951146, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
       propertyPath: startingPos
       value: 
@@ -34152,11 +34152,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8989312786304362586, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
---- !u!1 &1259078411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5707455965203542763, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
-  m_PrefabInstance: {fileID: 1259078410}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1261354552
 GameObject:
   m_ObjectHideFlags: 0
@@ -57169,6 +57164,7 @@ MonoBehaviour:
   dialogue:
     name: Start
     sentences:
+    - (Para avanzar en los dialogos, pulsa la E)
     - Qu...Que esta pasando? Donde estoy?
     - Pero si esta aqui Sei. Eh! Por que corre?! Voy a seguirlo.
     - Con la A-D deberia poder moverme de izquierda a derecha.
