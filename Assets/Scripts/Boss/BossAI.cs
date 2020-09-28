@@ -8,7 +8,7 @@ public class BossAI : MonoBehaviour
     public GameObject[] spawnPoints;
     private int idxSP;
 
-    private BossHealth health;
+    public BossHealth health;
     private IBossAtack attack;
     private IBossAtack attack2;
     [SerializeField]

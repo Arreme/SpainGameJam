@@ -171,6 +171,7 @@ public class PlayerController : MonoBehaviour
             {
                 weapon.GetComponent<Collider2D>().enabled = true;
                 animator.SetBool("isAttacking", true);
+                FindObjectOfType<AudioManager>().Play("Slash");
             }
             else
             {
@@ -200,6 +201,7 @@ public class PlayerController : MonoBehaviour
             {
                 rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * fCutJumpHeight);
                 animator.SetBool("isJumping", true);
+                FindObjectOfType<AudioManager>().Play("Jump");
             } else
             {
                 timePressed -= Time.deltaTime;
@@ -211,6 +213,7 @@ public class PlayerController : MonoBehaviour
             fGroundedRemember = 0;
             rigid.velocity = new Vector2(rigid.velocity.x, fJumpVelocity);
             animator.SetBool("isJumping", true);
+            FindObjectOfType<AudioManager>().Play("Jump");
             if (timePressed <= 0)
                 _doingLongJump = true;
         }
@@ -222,6 +225,7 @@ public class PlayerController : MonoBehaviour
         {
             fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenStopping, Time.deltaTime * 10f);
             animator.SetFloat("Velocity", 0);
+
         }
             
         else if (Mathf.Sign(leftrightcontext * -confusionState) != Mathf.Sign(fHorizontalVelocity))
@@ -246,6 +250,7 @@ public class PlayerController : MonoBehaviour
         {
             _isClimbing = true;
             animator.SetBool("isClimbing", true);
+
             if (updowncontext != 0)
             {
                 rigid.velocity = new Vector2(rigid.velocity.x, updowncontext * -confusionState * ladderSpeed);

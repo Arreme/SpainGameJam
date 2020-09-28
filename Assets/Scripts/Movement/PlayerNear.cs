@@ -8,6 +8,7 @@ public class PlayerNear : MonoBehaviour
     bool playerIsNear;
     [SerializeField] public Image image;
     [SerializeField] public Animator animator;
+    [SerializeField] public AudioSource source;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,6 +28,7 @@ public class PlayerNear : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             image.enabled = false;
+            source.Stop();
             animator.SetBool("isActive", false);
             playerIsNear = false;
         }
