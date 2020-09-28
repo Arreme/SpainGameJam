@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Boss"))
         {
             collision.GetComponent<BossAI>().sendAttack();
-            collision.GetComponent<BossAI>().tpRecievedDmg();
+            collision.GetComponent<BossAI>().recieveDMG();
         }
 
     }

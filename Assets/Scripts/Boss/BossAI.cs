@@ -24,6 +24,7 @@ public class BossAI : MonoBehaviour
     private float time;
     private float smashes;
     public bool active;
+    bool recievedDMG;
 
     [SerializeField]
     List<Animation> anims;
@@ -55,7 +56,11 @@ public class BossAI : MonoBehaviour
             }
             if (health.CurrentHealth > 50)
             {
-                tpRecievedDmg();
+                if (recievedDMG)
+                {
+                    recievedDMG = false;
+                    tpRecievedDmg();
+                }
             }
         }
         
@@ -124,9 +129,14 @@ public class BossAI : MonoBehaviour
         smashes++;
     }
 
-    public void tpRecievedDmg()
+    private void tpRecievedDmg()
     {
         idxSP = Random.Range(0, spawnPoints.Length);
         transform.position = new Vector3(spawnPoints[idxSP].transform.position.x, spawnPoints[idxSP].transform.position.y, 10);
+    }
+
+    public void recieveDMG()
+    {
+        recievedDMG = true;
     }
 }
