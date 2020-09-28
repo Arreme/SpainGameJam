@@ -13,7 +13,7 @@ public class SpawnBoss : MonoBehaviour
     Slider sld;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(objeto, trf, true);
+        Instantiate(objeto, trf.position,Quaternion.identity);
         
     }
 }
