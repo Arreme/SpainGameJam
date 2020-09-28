@@ -134,7 +134,8 @@ MonoBehaviour:
   _isInteracting: 0
   leftrightcontext: 0
   updowncontext: 0
-  weapon: {fileID: 0}
+  weapon: {fileID: 6180707987028362242}
+  withWeapon: 1
   maxSpeed: 9
   linearDrag: 4
   gravity: 2
@@ -151,7 +152,7 @@ MonoBehaviour:
   fHorizontalDampingWhenTurning: 0.84
   fCutJumpHeight: 0.5
   positionBox: {x: -0.03, y: -1.45}
-  scaleBox: {x: 0.6, y: -0.4}
+  scaleBox: {x: 0.32, y: -0.4}
   animator: {fileID: 7380392339358335460}
 --- !u!61 &8062586901207756858
 BoxCollider2D:
