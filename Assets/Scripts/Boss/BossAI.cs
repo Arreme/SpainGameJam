@@ -60,8 +60,14 @@ public class BossAI : MonoBehaviour
             }
             if(health.CurrentHealth <= 100 && health.CurrentHealth > 75)
             {
+<<<<<<< Updated upstream
                 if (recievedDMG) {
                     recievedDMG = false;
+=======
+                if (recievedDMG)
+                {
+
+>>>>>>> Stashed changes
                     transform.position = new Vector3(Random.Range(50.0f, 80.0f), -8.3f, 10.0f);
                 }
             }
