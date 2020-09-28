@@ -10,6 +10,8 @@ public class BossAI : MonoBehaviour
     private float minAttackTime;
     [SerializeField]
     private float maxAttackTime;
+    [SerializeField]
+    Transform tpPosition;
     private bool timeDecided;
     private float time;
 
@@ -45,6 +47,7 @@ public class BossAI : MonoBehaviour
         }
         else if (health == 50)
         {
+            transform.position = tpPosition.position;
             GameObject.FindGameObjectWithTag("darkness").GetComponent<DarknessFollows>().enabled = true;
             GameObject.FindGameObjectWithTag("darkness").GetComponent<BoxCollider2D>().enabled = true;
             GameObject.FindGameObjectWithTag("darkness").GetComponent<DarknessFades>().InvokeRepeating("fadeIn", 0, 0.1f);
@@ -52,6 +55,10 @@ public class BossAI : MonoBehaviour
         }  
         else if (health>= 25 && health<50)
         {
+            GameObject.FindGameObjectWithTag("darkness").GetComponent<DarknessFollows>().enabled = false;
+            GameObject.FindGameObjectWithTag("darkness").GetComponent<BoxCollider2D>().enabled = false;
+            GameObject.FindGameObjectWithTag("darkness").GetComponent<DarknessFades>().InvokeRepeating("fadeOut", 0, 0.1f);
+            GameObject.FindGameObjectWithTag("darknessEnlarger").GetComponent<DarknessFades>().InvokeRepeating("fadeOut", 0, 0.1f);
             changeAttack("TerceraFase");
         }
         else if (health < 25)
