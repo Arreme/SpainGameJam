@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UIElements;
@@ -51,23 +52,28 @@ public class EnemyPooler : MonoBehaviour
 
     public GameObject SpawnFromPool (string tag)
     {
-        if (!poolDictionary.ContainsKey(tag))
+       if(spawnPoints.Length != 0)
         {
-            Debug.LogWarning("Pool with tag: " + tag + " doesn't exist.");
-            return null;
+            if (!poolDictionary.ContainsKey(tag))
+            {
+                Debug.LogWarning("Pool with tag: " + tag + " doesn't exist.");
+                return null;
+            }
+
+            GameObject objToSpawn = poolDictionary[tag].Dequeue();
+
+            objToSpawn.SetActive(true);
+
+            randomSpawnPoint = Random.Range(0, spawnPoints.Length);
+            pos = new Vector3(spawnPoints[randomSpawnPoint].transform.position.x, spawnPoints[randomSpawnPoint].transform.position.y, 10);
+
+            objToSpawn.transform.position = pos;
+
+            poolDictionary[tag].Enqueue(objToSpawn);
+            return objToSpawn;
         }
-
-        GameObject objToSpawn = poolDictionary[tag].Dequeue();
-
-        objToSpawn.SetActive(true);
-
-        randomSpawnPoint = Random.Range(0, spawnPoints.Length);
-        pos = new Vector3(spawnPoints[randomSpawnPoint].transform.position.x, spawnPoints[randomSpawnPoint].transform.position.y, 10);
-
-        objToSpawn.transform.position = pos;
-
-        poolDictionary[tag].Enqueue(objToSpawn);
-        return objToSpawn;
+        return null;
+             
     }
 
     public int getSize()
@@ -75,5 +81,9 @@ public class EnemyPooler : MonoBehaviour
         return pools[0].size;
     }
 
+    public void deleteSpawnPoint(GameObject sp)
+    {
+        spawnPoints = spawnPoints.Where(val => val != sp).ToArray();
+    }
 
 }
