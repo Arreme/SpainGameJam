@@ -2589,7 +2589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3067,7 +3067,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85771446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 115.32366, y: 8.786119, z: 0}
+  m_LocalPosition: {x: 115.32366, y: 9.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1264511094}
@@ -3853,7 +3853,7 @@ Animator:
   m_GameObject: {fileID: 99711674}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2f2bf1dd9125dc48befd0b2367c4817, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2962e5daec4de2743bff33eb7e022d39, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6899,8 +6899,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.29, y: -3.447}
-  m_SizeDelta: {x: -10.554913, y: -6.915433}
+  m_AnchoredPosition: {x: -5.3339, y: -3.4753}
+  m_SizeDelta: {x: -10.642773, y: -6.9720736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &201888316
 Animator:
@@ -6912,7 +6912,7 @@ Animator:
   m_GameObject: {fileID: 201888314}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2f2bf1dd9125dc48befd0b2367c4817, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2962e5daec4de2743bff33eb7e022d39, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11283,10 +11283,10 @@ RectTransform:
   m_Father: {fileID: 2008292708}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.488, y: -3.342}
-  m_SizeDelta: {x: 0.000009447336, y: 0.000023585744}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -5.4867244, y: -3.3406825}
+  m_SizeDelta: {x: -9.36547, y: -5.700205}
   m_Pivot: {x: 0.4999999, y: 0.5000002}
 --- !u!95 &365049888
 Animator:
@@ -11298,7 +11298,7 @@ Animator:
   m_GameObject: {fileID: 365049886}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2f2bf1dd9125dc48befd0b2367c4817, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2962e5daec4de2743bff33eb7e022d39, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -34067,11 +34067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551966757925951143, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.06
+      value: -19.84
       objectReference: {fileID: 0}
     - target: {fileID: 1551966757925951143, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 1551966757925951143, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34128,6 +34128,18 @@ PrefabInstance:
     - target: {fileID: 1551966757925951146, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
       propertyPath: withWeapon
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551966757925951146, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551966757925951146, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
+      propertyPath: startingPos
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920232238318931432, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8989312786304362586, guid: a1a4a51f201d90243b910b949ca60ec8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -37081,8 +37093,7 @@ MonoBehaviour:
   dialogue:
     name: Perseccucio
     sentences:
-    - (dog) por que no paras de correr?! Por que huyes de mi? Tengo que ir a por
-      el!
+    - Sei por que no paras de correr?! Por que huyes de mi? Tengo que ir a por el!
   dialogueField: {fileID: 1743307583}
   animator: {fileID: 365049888}
   animator2: {fileID: 1829702705}
@@ -41357,10 +41368,10 @@ RectTransform:
   m_Father: {fileID: 1823758479}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.488, y: -3.342}
-  m_SizeDelta: {x: 0.000009447336, y: 0.000023585744}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -5.488578, y: -3.34183}
+  m_SizeDelta: {x: -9.366725, y: -5.701776}
   m_Pivot: {x: 0.4999999, y: 0.5000002}
 --- !u!95 &1515355047
 Animator:
@@ -41372,7 +41383,7 @@ Animator:
   m_GameObject: {fileID: 1515355045}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2f2bf1dd9125dc48befd0b2367c4817, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2962e5daec4de2743bff33eb7e022d39, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -42356,8 +42367,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.29, y: -3.447}
-  m_SizeDelta: {x: -10.55501, y: -6.9155264}
+  m_AnchoredPosition: {x: -5.301, y: -3.4804}
+  m_SizeDelta: {x: -10.653728, y: -6.9823523}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1531670558
 Animator:
@@ -42568,7 +42579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -43030,11 +43041,12 @@ MonoBehaviour:
   dialogue:
     name: EndDialogue
     sentences:
-    - Pe...Pero qu...que acaba de pasar? Por que ha desaparecido?
+    - Pe...Pero qu...que acaba de pasar? Por que ha desaparecido Sei?
     - Recuerdo su muerte, pero pensaba que era una pesadilla.
     - 'No puede ser real nada de esto! Uh? Qu...que es esto? '
     - Me ha dejado el palo con el que soliamos jugar...
     - No se que es lo que me espera, me lo llevare.
+    - (Pulsando la J puedes realizar un ataque)
   dialogueField: {fileID: 58658371}
   animator: {fileID: 201888316}
   animator2: {fileID: 1531670558}
@@ -50983,7 +50995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -57152,8 +57164,9 @@ MonoBehaviour:
   dialogue:
     name: Start
     sentences:
+    - (Para avanzar en los dialogos, pulsa la E)
     - Qu...Que esta pasando? Donde estoy?
-    - Pero si esta aqui (dog). Eh! Por que corre?! Voy a seguirlo.
+    - Pero si esta aqui Sei. Eh! Por que corre?! Voy a seguirlo.
     - Con la A-D deberia poder moverme de izquierda a derecha.
     - Y con el SPACE deberia poder saltar a las plataformas.
   dialogueField: {fileID: 635075772}

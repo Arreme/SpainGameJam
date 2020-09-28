@@ -38,10 +38,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -4906871870108012940}
-    m_Position: {x: 360.90906, y: 459.16663, z: 0}
+    m_Position: {x: 180, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6879598549412046732}
-    m_Position: {x: 170, y: 370, z: 0}
+    m_Position: {x: 500, y: 260, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -51,7 +51,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 6879598549412046732}
+  m_DefaultState: {fileID: -4906871870108012940}
 --- !u!1101 &-1356418897312688526
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -60,8 +60,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: isActive
+  - m_ConditionMode: 1
+    m_ConditionEvent: isOpen
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6879598549412046732}
@@ -86,7 +86,7 @@ AnimatorController:
   m_Name: Marco2
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isActive
+  - m_Name: isOpen
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -113,8 +113,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: isActive
+  - m_ConditionMode: 2
+    m_ConditionEvent: isOpen
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4906871870108012940}

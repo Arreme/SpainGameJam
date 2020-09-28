@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class SegonaFase : IBossAtack
 {
-    public SegonaFase()
+    List<Transform> trfs;
+    List<CircleCollider2D> cllds;
+    int number = 0;
+    public SegonaFase(List<Transform> trf,List<CircleCollider2D> clld)
     {
-
+        trfs = trf;
+        this.cllds = clld;
     }
     public void mainAttack()
     {
-        throw new System.NotImplementedException();
+        cllds[number].enabled = false;
+        number = Random.Range(0, 4);
+        cllds[number].enabled = true;
     }
 
     public override string ToString()

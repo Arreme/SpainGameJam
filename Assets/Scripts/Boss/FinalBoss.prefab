@@ -392,8 +392,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cbe7f6ec85c484d8289037760f7d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   minAttackTime: 5
   maxAttackTime: 15
+  tpPosition: {fileID: 0}
+  smashesNeeded: 0
+  smashTimer: 0
+  active: 0
+  anims:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  trf:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &9099574792905659719
 Rigidbody2D:
   serializedVersion: 4

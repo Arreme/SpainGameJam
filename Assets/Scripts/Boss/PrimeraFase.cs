@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PrimeraFase : IBossAtack
 {
-    public PrimeraFase()
+    private List<Animation> anims;
+    public PrimeraFase(List<Animation> animations)
     {
-
+        anims = animations;
     }
     public void mainAttack()
     {
-        throw new System.NotImplementedException();
+        int number = Random.Range(0, 4);
+        Animation anim = anims[number];
+        anim.Play();
     }
 
     public override string ToString()

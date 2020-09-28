@@ -6,14 +6,12 @@ using UnityEngine.UI;
 public class SpawnBoss : MonoBehaviour
 {
     [SerializeField]
-    GameObject objeto;
+    BossAI boss;
     [SerializeField]
-    Transform trf;
-    [SerializeField]
-    Slider sld;
+    Canvas slid;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(objeto, trf.position,Quaternion.identity);
-        
+        slid.enabled = true;
+        boss.active = true;
     }
 }

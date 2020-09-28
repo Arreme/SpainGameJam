@@ -40,5 +40,11 @@ public class Weapon : MonoBehaviour
             collision.GetComponent<Collider2D>().enabled = false;
         }
 
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Boss"))
+        {
+            collision.GetComponent<BossAI>().sendAttack();
+            collision.GetComponent<BossAI>().recieveDMG();
+        }
+
     }
 }

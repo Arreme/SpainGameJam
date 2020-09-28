@@ -130,6 +130,8 @@ MonoBehaviour:
   _isInteracting: 0
   leftrightcontext: 0
   updowncontext: 0
+  weapon: {fileID: 0}
+  withWeapon: 1
   maxSpeed: 9
   linearDrag: 4
   gravity: 2
