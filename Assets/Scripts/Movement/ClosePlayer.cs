@@ -10,8 +10,6 @@ public class ClosePlayer : MonoBehaviour
     private GameObject wallR;
     [SerializeField]
     private GameObject portal;
-    [SerializeField]
-    private GameObject spawnPoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +17,7 @@ public class ClosePlayer : MonoBehaviour
         {
             wallL.SetActive(true);
             wallR.SetActive(true);
-            spawnPoint.SetActive(true);
+           portal.SetActive(true);
         }   
 
     }
@@ -28,7 +26,7 @@ public class ClosePlayer : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (portal.active == false)
+            if (portal.GetComponent<SpriteRenderer>().enabled == false)
             {
                 wallL.SetActive(false);
                 wallR.SetActive(false);

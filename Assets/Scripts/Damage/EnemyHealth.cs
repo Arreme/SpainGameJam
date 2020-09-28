@@ -16,6 +16,6 @@ public class EnemyHealth : Damageable
 
     public override void Kill()
     {
-        base.Kill();
+        gameObject.SetActive(false);
     }
 }
