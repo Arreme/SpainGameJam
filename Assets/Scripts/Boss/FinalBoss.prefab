@@ -394,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAttackTime: 5
   maxAttackTime: 15
+  tpPosition: {fileID: 0}
 --- !u!50 &9099574792905659719
 Rigidbody2D:
   serializedVersion: 4

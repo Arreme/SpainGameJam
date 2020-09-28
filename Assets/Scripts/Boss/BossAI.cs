@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class BossAI : MonoBehaviour
 {
@@ -14,29 +15,34 @@ public class BossAI : MonoBehaviour
     Transform tpPosition;
     private bool timeDecided;
     private float time;
+    public bool actived;
 
     void Awake()
     {
         health = GetComponent<BossHealth>();
         timeDecided = false;
         attack = new PrimeraFase();
+        actived = false;
     }
 
      
     void Update()
     {
-        if (!timeDecided)
+        if (actived)
         {
-            time = Random.Range(minAttackTime,maxAttackTime);
-            timeDecided = true;
-        }
-        bossState(health.CurrentHealth);
-        time -= Time.deltaTime;
-        if (time <= 0)
-        {
-            timeDecided = false;
-            attack.mainAttack();
-        }
+            if (!timeDecided)
+            {
+                time = Random.Range(minAttackTime, maxAttackTime);
+                timeDecided = true;
+            }
+            bossState(health.CurrentHealth);
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                timeDecided = false;
+                attack.mainAttack();
+            }
+        
     }
 
     private void bossState(float health)

@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class PrimeraFase : IBossAtack
 {
-    public PrimeraFase()
-    {
-
-    }
+    [SerializeField]
+    Animation anims;
     public void mainAttack()
     {
-        throw new System.NotImplementedException();
+        anims.Play();
     }
 
     public override string ToString()
