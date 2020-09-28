@@ -23,33 +23,39 @@ public class BossAI : MonoBehaviour
     private bool timeDecided;
     private float time;
     private float smashes;
+    public bool active;
 
     void Awake()
     {
         health = GetComponent<BossHealth>();
         timeDecided = false;
         attack = new PrimeraFase();
+        active = false;
     }
 
      
     void Update()
     {
-        if (!timeDecided)
+        if (active)
         {
-            time = Random.Range(minAttackTime,maxAttackTime);
-            timeDecided = true;
+            if (!timeDecided)
+            {
+                time = Random.Range(minAttackTime, maxAttackTime);
+                timeDecided = true;
+            }
+            bossState(health.CurrentHealth);
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                timeDecided = false;
+                attack.mainAttack();
+            }
+            if (health.CurrentHealth > 50)
+            {
+                tpRecievedDmg();
+            }
         }
-        bossState(health.CurrentHealth);
-        time -= Time.deltaTime;
-        if (time <= 0)
-        {
-            timeDecided = false;
-            attack.mainAttack();
-        }
-        if (health.CurrentHealth > 50)
-        {
-            tpRecievedDmg();
-        }
+        
     }
 
     private void bossState(float health)
