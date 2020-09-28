@@ -20,6 +20,8 @@ TagManager:
   - Spawner
   - Door
   - Pool
+  - PlatF2
+  - PlatF3
   layers:
   - Default
   - TransparentFX

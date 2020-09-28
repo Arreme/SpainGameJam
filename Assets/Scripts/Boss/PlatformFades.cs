@@ -11,9 +11,9 @@ public class PlatformFades : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         color = sprite.color;
     }
-    void Update()
+    public void vanish()
     {
-        
+        color.a = 0f;
     }
     private void fadeIn()
     {

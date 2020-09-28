@@ -60,14 +60,8 @@ public class BossAI : MonoBehaviour
             }
             if(health.CurrentHealth <= 100 && health.CurrentHealth > 75)
             {
-<<<<<<< Updated upstream
                 if (recievedDMG) {
                     recievedDMG = false;
-=======
-                if (recievedDMG)
-                {
-
->>>>>>> Stashed changes
                     transform.position = new Vector3(Random.Range(50.0f, 80.0f), -8.3f, 10.0f);
                 }
             }
@@ -87,6 +81,14 @@ public class BossAI : MonoBehaviour
         if (health <= 75 && health > 50)
         {
             attack = attack2;
+            foreach (GameObject plat in GameObject.FindGameObjectsWithTag("PlatF2"))
+            {
+                plat.GetComponent<BoxCollider2D>().enabled = true;
+            }
+            foreach (GameObject plat in GameObject.FindGameObjectsWithTag("PlatF2"))
+            {
+                plat.GetComponent<PlatformFades>().InvokeRepeating("fadeIn", 0, 0.1f);
+            }
         }
         else if (health == 50)
         {
@@ -95,6 +97,8 @@ public class BossAI : MonoBehaviour
             GameObject.FindGameObjectWithTag("darkness").GetComponent<BoxCollider2D>().enabled = true;
             GameObject.FindGameObjectWithTag("darkness").GetComponent<DarknessFades>().InvokeRepeating("fadeIn", 0, 0.1f);
             GameObject.FindGameObjectWithTag("darknessEnlarger").GetComponent<DarknessFades>().InvokeRepeating("fadeIn", 0, 0.1f);
+            GameObject.FindGameObjectWithTag("PlatF3").GetComponent<BoxCollider2D>().enabled = true;
+            GameObject.FindGameObjectWithTag("PlatF3").GetComponent<PlatformFades>().InvokeRepeating("fadeIn", 0, 0.1f);
         }  
         else if (health>= 25 && health<50)
         {
