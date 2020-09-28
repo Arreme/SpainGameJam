@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class BossAI : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject[] spawnPoints;
+    private int idxSP;
+
     private BossHealth health;
     private IBossAtack attack;
     [SerializeField]
@@ -13,36 +16,40 @@ public class BossAI : MonoBehaviour
     private float maxAttackTime;
     [SerializeField]
     Transform tpPosition;
+    [SerializeField]
+    float smashesNeeded;
+    [SerializeField]
+    float smashTimer;
     private bool timeDecided;
     private float time;
-    public bool actived;
+    private float smashes;
 
     void Awake()
     {
         health = GetComponent<BossHealth>();
         timeDecided = false;
         attack = new PrimeraFase();
-        actived = false;
     }
 
      
     void Update()
     {
-        if (actived)
+        if (!timeDecided)
         {
-            if (!timeDecided)
-            {
-                time = Random.Range(minAttackTime, maxAttackTime);
-                timeDecided = true;
-            }
-            bossState(health.CurrentHealth);
-            time -= Time.deltaTime;
-            if (time <= 0)
-            {
-                timeDecided = false;
-                attack.mainAttack();
-            }
-        
+            time = Random.Range(minAttackTime,maxAttackTime);
+            timeDecided = true;
+        }
+        bossState(health.CurrentHealth);
+        time -= Time.deltaTime;
+        if (time <= 0)
+        {
+            timeDecided = false;
+            attack.mainAttack();
+        }
+        if (health.CurrentHealth > 50)
+        {
+            tpRecievedDmg();
+        }
     }
 
     private void bossState(float health)
@@ -70,6 +77,7 @@ public class BossAI : MonoBehaviour
         else if (health < 25)
         {
             changeAttack("LastFase");
+            smashTheButton();
         }
     }
 
@@ -81,5 +89,35 @@ public class BossAI : MonoBehaviour
             Debug.Log("Changed to" + this.attack);
         }
        
+    }
+
+    public void smashTheButton()
+    {
+        bool dead = false;
+        while (!dead)
+        {
+            float timer = smashTimer;
+            smashes = 0;
+            while (timer > 0)
+            {
+                timer -= 1 * Time.deltaTime;
+                if (smashes >= smashesNeeded)
+                {
+                    health.Kill();
+                    dead = true;
+                }
+            }
+        }        
+    }
+
+    public void sendAttack()
+    {
+        smashes++;
+    }
+
+    public void tpRecievedDmg()
+    {
+        idxSP = Random.Range(0, spawnPoints.Length);
+        transform.position = new Vector3(spawnPoints[idxSP].transform.position.x, spawnPoints[idxSP].transform.position.y, 10);
     }
 }
