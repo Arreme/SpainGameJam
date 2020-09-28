@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 38699377}
   - component: {fileID: 38699376}
   - component: {fileID: 38699378}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Portal3
   m_TagString: Spawner
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38699375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 111.10183, y: 9.654839, z: -10}
+  m_LocalPosition: {x: 111.10183, y: 9.654839, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1399649109}
@@ -1219,7 +1219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 194567148}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpawnPoint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2046,7 +2046,7 @@ GameObject:
   - component: {fileID: 434164305}
   - component: {fileID: 434164304}
   - component: {fileID: 434164303}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Portal6
   m_TagString: Spawner
   m_Icon: {fileID: 0}
@@ -2138,7 +2138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434164300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -137.33348, y: 8.934839, z: -10}
+  m_LocalPosition: {x: -137.33348, y: 8.934839, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 194567148}
@@ -3016,7 +3016,7 @@ GameObject:
   - component: {fileID: 625616912}
   - component: {fileID: 625616911}
   - component: {fileID: 625616913}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Portal4
   m_TagString: Spawner
   m_Icon: {fileID: 0}
@@ -3082,7 +3082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625616910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 157.12341, y: 15.7348385, z: -10}
+  m_LocalPosition: {x: 157.12341, y: 15.7348385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 883695670}
@@ -4576,7 +4576,7 @@ GameObject:
   - component: {fileID: 880876037}
   - component: {fileID: 880876036}
   - component: {fileID: 880876035}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Portal
   m_TagString: Spawner
   m_Icon: {fileID: 0}
@@ -4719,7 +4719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 883695670}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpawnPoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4821,7 +4821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907973838}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpawnPoint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5105,7 +5105,7 @@ GameObject:
   - component: {fileID: 972180442}
   - component: {fileID: 972180441}
   - component: {fileID: 972180443}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Portal5
   m_TagString: Spawner
   m_Icon: {fileID: 0}
@@ -5171,7 +5171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972180440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -94.32349, y: 0.18163681, z: -10}
+  m_LocalPosition: {x: -94.32349, y: 0.18163681, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 907973838}
@@ -6273,7 +6273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1210548726}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpawnPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7071,7 +7071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1399649109}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpawnPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7257,7 +7257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1484587324}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9121,7 +9121,7 @@ GameObject:
   - component: {fileID: 1965559819}
   - component: {fileID: 1965559818}
   - component: {fileID: 1965559815}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Portal2
   m_TagString: Spawner
   m_Icon: {fileID: 0}
@@ -9213,7 +9213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965559814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.506508, y: 24.454838, z: -10}
+  m_LocalPosition: {x: 61.506508, y: 24.454838, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1210548726}
@@ -9441,7 +9441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2030447225}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
