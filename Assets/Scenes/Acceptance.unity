@@ -4168,6 +4168,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4924128268095802735, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410081232790021020, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753299250944892094, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753299250944892094, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 487005099}
     - target: {fileID: 9099574792905659721, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
       propertyPath: m_Name
       value: FinalBoss
@@ -7748,7 +7772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4530b54a08b0998469dd3b28427ee467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 0}
+  boss: {fileID: 1538263636}
+  slid: {fileID: 1638314245}
 --- !u!4 &931916906
 Transform:
   m_ObjectHideFlags: 0
@@ -12227,6 +12252,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1538263636 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+  m_PrefabInstance: {fileID: 578361153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cbe7f6ec85c484d8289037760f7d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1538459039
 GameObject:
   m_ObjectHideFlags: 0
@@ -13475,6 +13511,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!223 &1638314245 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6410081232790021020, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+  m_PrefabInstance: {fileID: 578361153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1639249209
 GameObject:
   m_ObjectHideFlags: 0

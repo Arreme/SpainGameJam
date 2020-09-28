@@ -7,8 +7,11 @@ public class SpawnBoss : MonoBehaviour
 {
     [SerializeField]
     BossAI boss;
+    [SerializeField]
+    Canvas slid;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        slid.enabled = true;
         boss.active = true;
     }
 }
