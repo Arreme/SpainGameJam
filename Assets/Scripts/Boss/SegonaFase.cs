@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SegonaFase : IBossAtack
 {
-    public SegonaFase()
+    public SegonaFase(List<Transform> trf)
     {
-
+        trf.ForEach(x => x.position = new Vector3(x.position.x, 3.47f,x.position.z));
     }
     public void mainAttack()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override string ToString()
