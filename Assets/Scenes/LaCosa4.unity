@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e46169b46bd4a46b438db2a970d12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStage: Confusion
+  nextStage: Acceptance
   image: {fileID: 1210705303}
   animator: {fileID: 1210705300}
 --- !u!61 &316371625
@@ -1220,7 +1220,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 115
   m_Sprite: {fileID: 21300000, guid: c4fcc5b41027fe24096522008e0d5cc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5326,7 +5326,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 115
   m_Sprite: {fileID: 21300000, guid: c4fcc5b41027fe24096522008e0d5cc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

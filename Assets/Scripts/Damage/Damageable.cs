@@ -10,6 +10,7 @@ public class Damageable : MonoBehaviour, IDamageable
     protected void Awake()
     {
         currentHealth = maxHealth;
+        
     }
 
     public virtual void Damage(float amount)

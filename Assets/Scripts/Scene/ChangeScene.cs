@@ -8,6 +8,7 @@ public class ChangeScene : MonoBehaviour
 {
     [SerializeField]
     private string nextStage;
+
     [SerializeField]
     public Image image;
     [SerializeField]
@@ -31,7 +32,7 @@ public class ChangeScene : MonoBehaviour
             animator.SetBool("isActive", true);
             
             if (collision.GetComponent<PlayerController>()._isInteracting)
-            {
+            {               
                 SceneManager.LoadScene(nextStage);
             }
             

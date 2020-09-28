@@ -31,4 +31,12 @@ public class ClosePlayer : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            wallL.SetActive(false);
+        }
+    }
 }

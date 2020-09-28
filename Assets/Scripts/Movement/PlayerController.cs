@@ -89,10 +89,6 @@ public class PlayerController : MonoBehaviour
         input.Player1.Interact.performed += ctx => InteractInput(ctx);
         input.Player1.Attack.performed += ctx => AttackInput(ctx);
         rigid = GetComponent<Rigidbody2D>();
-
-        DontDestroyOnLoad(this);
-        DontDestroyOnLoad(animator);
-        DontDestroyOnLoad(this.GetComponent<SpriteRenderer>().sprite);
     }
 
     private void OnEnable()
