@@ -16,8 +16,6 @@ public class ClosePlayer : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             wallL.SetActive(true);
-            wallR.SetActive(true);
-           portal.SetActive(true);
         }   
 
     }
