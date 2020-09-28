@@ -18,15 +18,13 @@ public class EnemyPooler : MonoBehaviour
 
     /*Singleton*/
     public static EnemyPooler instance;
-    public GameObject quad;
-    private float screenX, screenY;
+    public GameObject[] spawnPoints;
+    private int randomSpawnPoint;
     private Vector3 pos;
-    private MeshCollider c;
 
     private void Awake()
     {
         instance = this;
-        c = quad.GetComponent<MeshCollider>();
     }
 
     public Dictionary<string, Queue<GameObject>> poolDictionary;
@@ -63,9 +61,8 @@ public class EnemyPooler : MonoBehaviour
 
         objToSpawn.SetActive(true);
 
-        screenX = Random.Range(c.bounds.min.x, c.bounds.max.x);
-        screenY = Random.Range(c.bounds.min.y, c.bounds.max.y);
-        pos = new Vector3(screenX, screenY, 10);
+        randomSpawnPoint = Random.Range(0, spawnPoints.Length);
+        pos = new Vector3(spawnPoints[randomSpawnPoint].transform.position.x, spawnPoints[randomSpawnPoint].transform.position.y, 10);
 
         objToSpawn.transform.position = pos;
 
