@@ -3532,6 +3532,7 @@ GameObject:
   - component: {fileID: 493444169}
   - component: {fileID: 493444168}
   - component: {fileID: 493444167}
+  - component: {fileID: 493444170}
   m_Layer: 0
   m_Name: PinxusFairUse
   m_TagString: Untagged
@@ -3579,7 +3580,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3}
@@ -3646,6 +3647,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &493444170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493444165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661e13486603d0f46a39748437734509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &496730775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5303,6 +5317,7 @@ GameObject:
   - component: {fileID: 695932658}
   - component: {fileID: 695932657}
   - component: {fileID: 695932659}
+  - component: {fileID: 695932660}
   m_Layer: 0
   m_Name: PinxusFairUse (2)
   m_TagString: Untagged
@@ -5334,7 +5349,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3}
@@ -5417,6 +5432,19 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &695932660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695932655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661e13486603d0f46a39748437734509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &704852330
 GameObject:
   m_ObjectHideFlags: 0
@@ -9031,6 +9059,7 @@ GameObject:
   - component: {fileID: 1056661855}
   - component: {fileID: 1056661854}
   - component: {fileID: 1056661856}
+  - component: {fileID: 1056661857}
   m_Layer: 0
   m_Name: PinxusFairUse (3)
   m_TagString: Untagged
@@ -9062,7 +9091,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3}
@@ -9145,6 +9174,19 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1056661857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056661852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661e13486603d0f46a39748437734509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &1064156794
 GameObject:
   m_ObjectHideFlags: 0
@@ -16152,6 +16194,7 @@ GameObject:
   - component: {fileID: 1976205391}
   - component: {fileID: 1976205390}
   - component: {fileID: 1976205389}
+  - component: {fileID: 1976205392}
   m_Layer: 0
   m_Name: PinxusFairUse (1)
   m_TagString: Untagged
@@ -16199,7 +16242,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3}
@@ -16266,6 +16309,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1976205392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976205387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661e13486603d0f46a39748437734509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &1990247053
 GameObject:
   m_ObjectHideFlags: 0
