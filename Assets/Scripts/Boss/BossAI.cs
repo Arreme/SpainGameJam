@@ -31,6 +31,8 @@ public class BossAI : MonoBehaviour
     List<Animation> anims;
     [SerializeField]
     List<Transform> trf;
+    [SerializeField]
+    List<CircleCollider2D> cols;
 
     void Awake()
     {
@@ -38,7 +40,7 @@ public class BossAI : MonoBehaviour
         timeDecided = false;
         attack = new PrimeraFase(anims);
         active = false;
-        attack2 = new SegonaFase(trf);
+        attack2 = new SegonaFase(trf,cols);
     }
 
      
