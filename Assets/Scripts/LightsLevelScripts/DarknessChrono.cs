@@ -20,7 +20,7 @@ public class DarknessChrono : MonoBehaviour
         inner = darkness.pointLightInnerRadius;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float multiplier;
         currentTime -= 1 * Time.deltaTime;
