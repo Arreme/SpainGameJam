@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid;
     [SerializeField]
     private GameObject weapon;
+    [SerializeField]
+    bool withWeapon = true;
 
     [Header("Physics")]
     public float maxSpeed = 7f;
@@ -167,16 +169,20 @@ public class PlayerController : MonoBehaviour
         fGroundedRemember -= Time.deltaTime;
 
 
-        if (_isAttacking)
+        if (withWeapon)
         {
-            weapon.GetComponent<Collider2D>().enabled = true;
-            animator.SetBool("isAttacking", true);
+            if (_isAttacking)
+            {
+                weapon.GetComponent<Collider2D>().enabled = true;
+                animator.SetBool("isAttacking", true);
+            }
+            else
+            {
+                weapon.GetComponent<Collider2D>().enabled = false;
+                animator.SetBool("isAttacking", false);
+            }
         }
-        else
-        {
-            weapon.GetComponent<Collider2D>().enabled = false;
-            animator.SetBool("isAttacking", false);
-        }        
+             
 
         if (_isGrounded || _isClimbing)
         {

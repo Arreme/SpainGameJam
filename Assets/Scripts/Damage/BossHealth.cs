@@ -7,10 +7,15 @@ public class BossHealth : Damageable
 {
     public Slider slider;
     public float sliderSmooth = 0.15f;
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+    }
 
     new private void Awake()
     {
         base.Awake();
+        slider.enabled = true;
         slider.maxValue = maxHealth;
         slider.value = slider.maxValue;
     }
