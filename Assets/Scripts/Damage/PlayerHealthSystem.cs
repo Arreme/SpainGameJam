@@ -20,6 +20,10 @@ public class PlayerHealthSystem : Damageable
     private void FixedUpdate()
     {
         SliderUpdate();
+        if(currentHealth <= 0)
+        {
+            Kill();
+        }
     }
 
     public void RestoreHealth()
