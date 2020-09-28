@@ -10,6 +10,7 @@ public class BossAI : MonoBehaviour
 
     private BossHealth health;
     private IBossAtack attack;
+    private IBossAtack attack2;
     [SerializeField]
     private float minAttackTime;
     [SerializeField]
@@ -28,6 +29,8 @@ public class BossAI : MonoBehaviour
 
     [SerializeField]
     List<Animation> anims;
+    [SerializeField]
+    List<Transform> trf;
 
     void Awake()
     {
@@ -35,6 +38,7 @@ public class BossAI : MonoBehaviour
         timeDecided = false;
         attack = new PrimeraFase(anims);
         active = false;
+        attack2 = new SegonaFase(trf);
     }
 
      
@@ -56,8 +60,8 @@ public class BossAI : MonoBehaviour
             }
             if(health.CurrentHealth <= 100 && health.CurrentHealth > 75)
             {
-                if (recievedDMG)
-                {
+                if (recievedDMG) {
+                    recievedDMG = false;
                     transform.position = new Vector3(Random.Range(50.0f, 80.0f), -8.3f, 10.0f);
                 }
             }
@@ -76,7 +80,7 @@ public class BossAI : MonoBehaviour
     {
         if (health <= 75 && health > 50)
         {
-            changeAttack("SegonaFase");
+            attack = attack2;
         }
         else if (health == 50)
         {
@@ -106,7 +110,7 @@ public class BossAI : MonoBehaviour
         if (!attack.Equals(this.attack.ToString()))
         {
             this.attack = AttackInit.generateAttack(attack);
-            Debug.Log("Changed to" + this.attack);
+            
         }
        
     }

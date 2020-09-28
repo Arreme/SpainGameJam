@@ -4344,6 +4344,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: anims.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: trf.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 848655956}
@@ -4359,6 +4367,38 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[3]
       value: 
       objectReference: {fileID: 2133907309}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: anims.Array.data[0]
+      value: 
+      objectReference: {fileID: 493444167}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: anims.Array.data[1]
+      value: 
+      objectReference: {fileID: 1976205389}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: anims.Array.data[2]
+      value: 
+      objectReference: {fileID: 695932659}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: anims.Array.data[3]
+      value: 
+      objectReference: {fileID: 1056661856}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: trf.Array.data[0]
+      value: 
+      objectReference: {fileID: 1056661853}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: trf.Array.data[1]
+      value: 
+      objectReference: {fileID: 695932656}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: trf.Array.data[2]
+      value: 
+      objectReference: {fileID: 1976205388}
+    - target: {fileID: 9099574792905659718, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
+      propertyPath: trf.Array.data[3]
+      value: 
+      objectReference: {fileID: 493444166}
     - target: {fileID: 9099574792905659721, guid: 00930dd8fa7360d40b8f7797f010c58a, type: 3}
       propertyPath: m_Name
       value: FinalBoss
@@ -17013,7 +17053,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133907309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.4, y: 4, z: 0}
+  m_LocalPosition: {x: 77.4, y: 5.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1003355349}

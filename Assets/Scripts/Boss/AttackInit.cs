@@ -9,7 +9,7 @@ public class AttackInit
     {
         if (name.Equals("SegonaFase"))
         {
-            return new SegonaFase();
+            return null;
         } else if (name.Equals("TerceraFase"))
         {
             return new TerceraFase();
