@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/InitialKinematic.unity
+    guid: b5f551a7a5d89344ca4b279d3d16c6af
   - enabled: 1
     path: Assets/Scenes/Denial.unity
     guid: 15b5ff8397e889b428f7f14b6676cfe7
