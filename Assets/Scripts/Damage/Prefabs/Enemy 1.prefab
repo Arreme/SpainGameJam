@@ -141,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 109
   m_Sprite: {fileID: 6656582412914418087, guid: 5ecfea053c8166d4c8470f3ab945755f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -287,8 +287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
-  slider: {fileID: 0}
-  sliderSmooth: 0.15
 --- !u!1 &707818999818717456
 GameObject:
   m_ObjectHideFlags: 0
