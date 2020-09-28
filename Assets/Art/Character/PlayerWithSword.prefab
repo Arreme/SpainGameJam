@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2389479993566351132}
   - component: {fileID: 2389479993566351135}
   - component: {fileID: 2389479993566351134}
-  - component: {fileID: 2389479993566351121}
   - component: {fileID: 8062586901207756858}
+  - component: {fileID: -7229329623909956340}
   - component: {fileID: 7380392339358335460}
-  - component: {fileID: 386223403372503506}
+  - component: {fileID: 185356047392108271}
   m_Layer: 9
   m_Name: PlayerWithSword
   m_TagString: Player
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 110
   m_Sprite: {fileID: -6159725111967790017, guid: 2f36748a4fa01b44ba4b14cd9029cfdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,50 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2389479993566351121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2389479993566351123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a246930cb56bbdb408fc56e542705df3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lmWalls:
-    serializedVersion: 2
-    m_Bits: 256
-  whatIsLadder:
-    serializedVersion: 2
-    m_Bits: 2048
-  ladderRayDist: 0.1
-  ladderSpeed: 5
-  fJumpVelocity: 15
-  confusionState: -1
-  _isInteracting: 0
-  leftrightcontext: 0
-  updowncontext: 0
-  weapon: {fileID: 0}
-  maxSpeed: 9
-  linearDrag: 4
-  gravity: 2
-  fallMultiplier: 2.75
-  fJumpPressedRemember: 0
-  fJumpPressedRememberTime: 0.05
-  fGroundedRemember: 0
-  fGroundedRememberTime: 0.88
-  timeForLongJump: 2
-  isReading: 0
-  fHorizontalAcceleration: 1
-  fHorizontalDampingBasic: 0.355
-  fHorizontalDampingWhenStopping: 0.82
-  fHorizontalDampingWhenTurning: 0.84
-  fCutJumpHeight: 0.5
-  positionBox: {x: -0.03, y: -1.45}
-  scaleBox: {x: 0.6, y: -0.4}
-  animator: {fileID: 7380392339358335460}
 --- !u!61 &8062586901207756858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,6 +135,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9702806, y: 6.3238235}
   m_EdgeRadius: 0.05
+--- !u!114 &-7229329623909956340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389479993566351123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a246930cb56bbdb408fc56e542705df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lmWalls:
+    serializedVersion: 2
+    m_Bits: 256
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 2048
+  ladderRayDist: 0.1
+  ladderSpeed: 5
+  fJumpVelocity: 15
+  confusionState: -1
+  _isInteracting: 0
+  leftrightcontext: 0
+  updowncontext: 0
+  weapon: {fileID: 6180707987028362242}
+  withWeapon: 1
+  maxSpeed: 9
+  linearDrag: 4
+  gravity: 2
+  fallMultiplier: 2.75
+  fJumpPressedRemember: 0
+  fJumpPressedRememberTime: 0.05
+  fGroundedRemember: 0
+  fGroundedRememberTime: 0.88
+  timeForLongJump: 2
+  isReading: 0
+  fHorizontalAcceleration: 1
+  fHorizontalDampingBasic: 0.355
+  fHorizontalDampingWhenStopping: 0.82
+  fHorizontalDampingWhenTurning: 0.84
+  fCutJumpHeight: 0.5
+  positionBox: {x: -0.1, y: -1.45}
+  scaleBox: {x: 0.6, y: -0.4}
+  animator: {fileID: 7380392339358335460}
 --- !u!95 &7380392339358335460
 Animator:
   serializedVersion: 3
@@ -198,7 +199,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &386223403372503506
+--- !u!114 &185356047392108271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,17 +293,19 @@ PolygonCollider2D:
     - - {x: 0.026211575, y: 0.3298595}
       - {x: 0.054837562, y: 0.1401011}
       - {x: 0.061680023, y: 0.13475132}
-      - {x: 0.4951904, y: 0.052153587}
-      - {x: 2.4680877, y: 0.080257416}
-      - {x: 2.861761, y: 0.07579589}
-      - {x: 3.8820276, y: 0.2886733}
-      - {x: 4.4530497, y: 0.6543201}
-      - {x: 4.983232, y: 1.1645424}
-      - {x: 5.198181, y: 1.5887377}
-      - {x: 5.55022, y: 2.3020484}
-      - {x: 5.516535, y: 2.8905642}
-      - {x: 5.2551794, y: 3.1142356}
-      - {x: 5.0894213, y: 3.3201032}
-      - {x: 4.5104504, y: 3.4694338}
-      - {x: 2.6493149, y: 3.8681152}
-      - {x: -0.12920518, y: 4.376625}
+      - {x: 0.021936923, y: -0.3875598}
+      - {x: 0.08937168, y: -1.7293613}
+      - {x: 0.08241248, y: -2.7970483}
+      - {x: 0.89774275, y: -2.7523766}
+      - {x: 2.1356595, y: -2.6258824}
+      - {x: 2.7275121, y: -2.3914585}
+      - {x: 3.9403448, y: -1.7529271}
+      - {x: 4.071891, y: -1.0044392}
+      - {x: 3.3503423, y: 0.9935806}
+      - {x: 3.2616258, y: 1.8750926}
+      - {x: 3.126235, y: 2.6059256}
+      - {x: 2.9835625, y: 3.0107293}
+      - {x: 2.7669172, y: 3.3459787}
+      - {x: 2.526996, y: 3.4564981}
+      - {x: 2.2594013, y: 3.441155}
+      - {x: -0.112273194, y: 3.3156922}
