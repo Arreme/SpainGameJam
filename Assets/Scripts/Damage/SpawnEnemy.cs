@@ -9,14 +9,9 @@ public class SpawnEnemy : MonoBehaviour
     private void Start()
     {
         enemyPooler = EnemyPooler.instance;
-        InvokeRepeating("spawnMob", 0, 2f);
+        InvokeRepeating("spawnMob", 0, 0.5f);
     }
 
-    private void FixedUpdate()
-    {
-        
-        
-    }
 
     private void spawnMob()
     {

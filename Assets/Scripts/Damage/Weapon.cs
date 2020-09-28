@@ -33,5 +33,10 @@ public class Weapon : MonoBehaviour
             torch = dkc;
         }
 
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Spawner"))
+        {
+            collision.gameObject.SetActive(false);
+        }
+
     }
 }

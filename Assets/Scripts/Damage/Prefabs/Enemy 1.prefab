@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 707818998954923801}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PlayerContact
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 707818999091348607}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PlayerBehind
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -76,9 +76,10 @@ GameObject:
   - component: {fileID: 707818999234463625}
   - component: {fileID: 707818999234463626}
   - component: {fileID: 8361110259708188613}
-  m_Layer: 0
+  - component: {fileID: -1473417907566513731}
+  m_Layer: 14
   m_Name: Enemy 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +92,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707818999234463629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.48843, y: -5.274448, z: 420.69928}
+  m_LocalPosition: {x: -11.48843, y: -5.274448, z: 10}
   m_LocalScale: {x: 9, y: 9, z: 1}
   m_Children:
   - {fileID: 707819000242558069}
@@ -140,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 0
   m_Sprite: {fileID: 6656582412914418087, guid: 5ecfea053c8166d4c8470f3ab945755f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -272,6 +273,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+--- !u!114 &-1473417907566513731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707818999234463629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4fc4f1555ae0443940ba359e96fd99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  slider: {fileID: 0}
+  sliderSmooth: 0.15
 --- !u!1 &707818999818717456
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 707818999818717459}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -311,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 707819000242558069}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: NextStep
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
