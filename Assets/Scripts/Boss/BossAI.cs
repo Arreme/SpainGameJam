@@ -45,13 +45,18 @@ public class BossAI : MonoBehaviour
         }
         else if (health == 50)
         {
-
-        } else if (health < 25)
-        {
-            changeAttack("LastFase");
-        } else if (health>= 25 && health<50)
+            GameObject.FindGameObjectWithTag("darkness").GetComponent<DarknessFollows>().enabled = true;
+            GameObject.FindGameObjectWithTag("darkness").GetComponent<BoxCollider2D>().enabled = true;
+            GameObject.FindGameObjectWithTag("darkness").GetComponent<DarknessFades>().InvokeRepeating("fadeIn", 0, 0.1f);
+            GameObject.FindGameObjectWithTag("darknessEnlarger").GetComponent<DarknessFades>().InvokeRepeating("fadeIn", 0, 0.1f);
+        }  
+        else if (health>= 25 && health<50)
         {
             changeAttack("TerceraFase");
+        }
+        else if (health < 25)
+        {
+            changeAttack("LastFase");
         }
     }
 
