@@ -30,7 +30,7 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E)) DisplayNextDialogue();
+        if (inRange && Input.GetKeyDown(KeyCode.E)) DisplayNextDialogue(GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,7 +40,7 @@ public class Interaction : MonoBehaviour
             collision.GetComponent<PlayerController>().isReading = true;
             collision.GetComponent<PlayerController>().leftrightcontext = 0;
             collision.GetComponent<PlayerController>().updowncontext = 0;
-            StartDialogue();
+            StartDialogue(collision);
             inRange = true;
         }
     }
@@ -49,12 +49,12 @@ public class Interaction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            EndDialogue();
+            EndDialogue(collision);
             inRange = false;            
         }
     }
 
-    public void StartDialogue()
+    public void StartDialogue(Collider2D collision)
     {
         animator.SetBool("isOpen", true);
         animator2.SetBool("isOpen", true);
@@ -66,14 +66,14 @@ public class Interaction : MonoBehaviour
             sentences.Enqueue(s);
         }
 
-        DisplayNextDialogue();
+        DisplayNextDialogue(collision);
     }
 
-    public void DisplayNextDialogue()
+    public void DisplayNextDialogue(Collider2D collision)
     {
         if (sentences.Count == 0)
         {
-            EndDialogue();
+            EndDialogue(collision);
             return;
         }
         StopAllCoroutines();
@@ -90,14 +90,13 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    public void EndDialogue()
+    public void EndDialogue(Collider2D collision)
     {
+        collision.GetComponent<PlayerController>().isReading = false;
         GetComponent<Collider2D>().enabled = false;
-        StopAllCoroutines();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isReading = false;
+        StopAllCoroutines();        
         dialogueField.SetText("");
         animator.SetBool("isOpen", false);
-        animator2.SetBool("isOpen", false);
-        
+        animator2.SetBool("isOpen", false);        
     }
 }
