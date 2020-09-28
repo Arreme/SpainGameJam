@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UIElements;
@@ -75,5 +76,10 @@ public class EnemyPooler : MonoBehaviour
         return pools[0].size;
     }
 
+    public void deleteSpawnPoint(GameObject sp)
+    {
+        Debug.Log("HAI");
+        spawnPoints = spawnPoints.Where(val => val != sp).ToArray();
+    }
 
 }

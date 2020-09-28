@@ -35,7 +35,9 @@ public class Weapon : MonoBehaviour
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Spawner"))
         {
-            collision.gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Pool").GetComponent<EnemyPooler>().deleteSpawnPoint(collision.gameObject);
+            collision.GetComponent<SpriteRenderer>().enabled = false;
+            collision.GetComponent<Collider2D>().enabled = false;
         }
 
     }
