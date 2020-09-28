@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class PrimeraFase : IBossAtack
 {
-    [SerializeField]
-    Animation anims;
+    private List<Animation> anims;
+    public PrimeraFase(List<Animation> animations)
+    {
+        anims = animations;
+    }
     public void mainAttack()
     {
-        anims.Play();
+        int number = Random.Range(0, 4);
+        Animation anim = anims[number];
+        anim.Play();
     }
 
     public override string ToString()

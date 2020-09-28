@@ -25,11 +25,14 @@ public class BossAI : MonoBehaviour
     private float smashes;
     public bool active;
 
+    [SerializeField]
+    List<Animation> anims;
+
     void Awake()
     {
         health = GetComponent<BossHealth>();
         timeDecided = false;
-        attack = new PrimeraFase();
+        attack = new PrimeraFase(anims);
         active = false;
     }
 
